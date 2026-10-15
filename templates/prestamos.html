@@ -107,11 +107,6 @@
                         </select>
                     </div>
 
-                    <div class="acciones-busqueda">
-                        <button type="button" id="btnFiltrar">Filtrar</button>
-                        <button type="button" id="btnActualizar">Limpiar / actualizar</button>
-                    </div>
-
                 </div>
 
                 <!-- Aquí JavaScript mostrará los registros que llegan desde la API -->
@@ -127,10 +122,14 @@
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
+
+                                <th>Acciones</th>
+                        </tr>
                         </thead>
 
                         <tbody id="tablaPrestamos">
                             <tr>
+
                                 <td colspan="7" class="mensaje-vacio">
                                     Aún no se ha generado un préstamo en la biblioteca.
                                 </td>
@@ -221,6 +220,7 @@
                         >
                     </fieldset>
                     
+
 <!-- Fechas del préstamo: la devolución se calcula según los días elegidos -->
 <fieldset class="grupo-formulario">
     <legend>3. Fechas del préstamo</legend>

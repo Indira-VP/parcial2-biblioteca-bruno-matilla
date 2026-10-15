@@ -574,6 +574,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fechaPrestamo && !fechaPrestamo.value) {
         fechaPrestamo.value = obtenerFechaLocal();
     }
+
+    fechaPrestamo?.addEventListener("change", calcularFechaDevolucion);
+duracionPrestamo?.addEventListener("change", calcularFechaDevolucion);
 // Al iniciar la página, ponemos la fecha actual si está vacía,
 // calculamos la fecha de devolución y cargamos los préstamos
     calcularFechaDevolucion();
