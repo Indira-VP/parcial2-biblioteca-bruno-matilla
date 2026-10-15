@@ -13,67 +13,99 @@ document.addEventListener('DOMContentLoaded', () => {
     const metricPrestamos = document.getElementById('metric-prestamos');
     const btnActualizar = document.getElementById('btn-actualizar-inicio');
 
-    // 1. Cargar datos del panel principal
+    // 1. Cargar datos reales y dinámicos del panel principal
     async function cargarPanelPrincipal() {
         try {
-            // Petición a la API real de Autores
-            const resAutores = await fetch('/api/autores/');
-            const autores = resAutores.ok ? await resAutores.json() : [];
+            // Consultar las 3 APIs REST en paralelo
+            const [resAutores, resLibros, resPrestamos] = await Promise.allSettled([
+                fetch('/api/autores/').then(r => r.ok ? r.json() : []),
+                fetch('/api/libros/').then(r => r.ok ? r.json() : []),
+                fetch('/api/prestamos/').then(r => r.ok ? r.json() : [])
+            ]);
 
+            const autores = resAutores.status === 'fulfilled' ? resAutores.value : [];
+            const libros = resLibros.status === 'fulfilled' ? resLibros.value : [];
+            const prestamos = resPrestamos.status === 'fulfilled' ? resPrestamos.value : [];
+
+            // Actualizar Métricas Reales (KPIs)
             if (metricAutores) metricAutores.textContent = autores.length;
+            if (metricLibros) metricLibros.textContent = libros.length;
 
+            // Calcular préstamos activos
+            const prestamosActivos = prestamos.filter(p => 
+                String(p.estado || '').toLowerCase() === 'activo' || 
+                String(p.estado || '').toLowerCase() === 'prestado'
+            ).length;
+
+            if (metricPrestamos) metricPrestamos.textContent = prestamosActivos;
+
+            // Construir Feed de Actividad Unificado con Datos Reales
             actividadData = [];
 
-            // Convertir todos los autores cargados en eventos del feed
+            // A. Registros de Autores
             autores.forEach(a => {
                 actividadData.push({
                     codigo: `#AUT-${String(a.id).padStart(2, '0')}`,
                     moduloClass: 'autor',
                     moduloNombre: 'Autor',
                     icono: 'ri-user-add-line',
-                    descripcion: `${a.nombre} ${a.apellido || ''}`.trim(),
+                    descripcion: `${a.nombre || ''} ${a.apellido || ''}`.trim(),
                     responsable: 'Sistema / Registro',
                     fecha: a.fecha_nacimiento || '2026-10-15',
                     estado: 'Registrado',
-                    estadoClass: 'registrado'
+                    estadoClass: 'registrado',
+                    sortKey: a.id
                 });
             });
 
-            // Muestras de Préstamos y Libros
-            actividadData.push(
-                {
-                    codigo: '#PR-101',
-                    moduloClass: 'prestamo',
-                    moduloNombre: 'Préstamo',
-                    icono: 'ri-swap-line',
-                    descripcion: 'Cien años de soledad',
-                    responsable: 'Carlos Restrepo',
-                    fecha: '2026-10-14',
-                    estado: 'Activo',
-                    estadoClass: 'activo'
-                },
-                {
-                    codigo: '#LIB-042',
+            // B. Registros de Libros
+            libros.forEach(l => {
+                actividadData.push({
+                    codigo: `#LIB-${String(l.id).padStart(3, '0')}`,
                     moduloClass: 'libro',
                     moduloNombre: 'Libro',
                     icono: 'ri-book-line',
-                    descripcion: 'Estructuras de Datos en Java',
-                    responsable: 'David Caicedo',
-                    fecha: '2026-10-12',
+                    descripcion: l.titulo || 'Libro sin título',
+                    responsable: l.autor ? `Autor: ${l.autor}` : 'Sistema / Registro',
+                    fecha: l.anio_publicacion ? String(l.anio_publicacion) : '2026-10-15',
                     estado: 'Disponible',
-                    estadoClass: 'disponible'
-                }
-            );
+                    estadoClass: 'disponible',
+                    sortKey: l.id
+                });
+            });
 
-            // Muestras suplementarias
-            if (metricLibros) metricLibros.textContent = '142';
-            if (metricPrestamos) metricPrestamos.textContent = '18';
+            // C. Registros de Préstamos
+            prestamos.forEach(p => {
+                const estadoLower = String(p.estado || 'activo').toLowerCase();
+                let estadoClass = 'activo';
+                if (estadoLower.includes('devuelto') || estadoLower.includes('finalizado')) {
+                    estadoClass = 'registrado';
+                } else if (estadoLower.includes('vencido') || estadoLower.includes('atrasado')) {
+                    estadoClass = 'mantenimiento';
+                }
+
+                actividadData.push({
+                    codigo: `#PR-${String(p.id).padStart(3, '0')}`,
+                    moduloClass: 'prestamo',
+                    moduloNombre: 'Préstamo',
+                    icono: 'ri-swap-line',
+                    descripcion: p.ejemplar_detalle || p.libro_titulo || `Préstamo Ejemplar #${p.ejemplar || p.id}`,
+                    responsable: p.solicitante || p.usuario || 'Usuario Biblioteca',
+                    fecha: p.fecha_prestamo || p.fecha_salida || '2026-10-15',
+                    estado: p.estado || 'Activo',
+                    estadoClass: estadoClass,
+                    sortKey: p.id
+                });
+            });
+
+            // Ordenar de más reciente a más antiguo por ID
+            actividadData.sort((a, b) => b.sortKey - a.sortKey);
 
             paginaActual = 1;
             renderizarTablaActividad();
 
         } catch (error) {
-            console.error('Error al cargar datos en el inicio:', error);
+            console.error('Error al cargar datos reales en el Dashboard:', error);
         }
     }
 
@@ -83,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tablaActividad.innerHTML = '';
 
         if (actividadData.length === 0) {
-            tablaActividad.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 2rem; color: var(--text-muted);">No hay registros recientes.</td></tr>`;
+            tablaActividad.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 2rem; color: var(--text-muted);">No hay registros recientes en la base de datos.</td></tr>`;
             if (infoActividad) infoActividad.textContent = 'Mostrando 0 registros';
             if (contenedorPaginacion) contenedorPaginacion.innerHTML = '';
             return;
@@ -118,15 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalRegistros = actividadData.length;
         const totalPaginas = Math.ceil(totalRegistros / registrosPorPagina);
 
-        const inicioMostrado = (paginaActual - 1) * registrosPorPagina + 1;
+        const inicioMostrado = totalRegistros > 0 ? (paginaActual - 1) * registrosPorPagina + 1 : 0;
         const finMostrado = Math.min(paginaActual * registrosPorPagina, totalRegistros);
 
         if (infoActividad) {
-            infoActividad.textContent = `Mostrando ${inicioMostrado} - ${finMostrado} de ${totalRegistros} registros`;
+            infoActividad.textContent = `Mostrando ${inicioMostrado} a ${finMostrado} de ${totalRegistros} registros`;
         }
 
         if (!contenedorPaginacion) return;
         contenedorPaginacion.innerHTML = '';
+
+        if (totalPaginas <= 1) return;
 
         // Botón Anterior
         const btnAnt = document.createElement('button');
