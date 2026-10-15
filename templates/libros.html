@@ -120,15 +120,9 @@
                             <label for="autor">
                                 Autor registrado <span>*</span>
                             </label>
-
-                            <input
-    type="text"
-    id="autor"
-    name="autor"
-    placeholder="Escribe el nombre del autor"
-    maxlength="150"
-    required
->
+                            <select id="autor" name="autor" required>
+    <option value="">Cargando autores...</option>
+</select>
                         </div>
 
                         <div class="campo">
@@ -223,13 +217,18 @@
                             <select id="genero" name="genero" required>
                                 <option value="">Seleccionar...</option>
                                 <option value="literatura">Literatura</option>
-                                <option value="computacion">
-                                    Ciencias Computacionales
-                                </option>
+                                <option value="computacion">Ciencias Computacionales</option>
                                 <option value="ingenieria">Ingeniería</option>
                                 <option value="historia">Historia</option>
                                 <option value="ciencias">Ciencias</option>
-                                <option value="otro">Otro</option>
+                                <option value="filosofia">Filosofía</option>
+                                <option value="psicologia">Psicología</option>
+                                <option value="derecho">Derecho</option>
+                                <option value="economia">Economía</option>
+                                <option value="educacion">Educación</option>
+                                <option value="arte">Arte</option>
+                                <option value="drama">Drama</option>
+                                <option value="ficcion">Ficcion</option>
                             </select>
                         </div>
                     </fieldset>

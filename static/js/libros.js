@@ -103,7 +103,6 @@ async function consultarAPI(url) {
 // CARGAR AUTORES
 // ======================================================
 
-/*
 
 async function cargarAutores() {
     if (!selectorAutor) return;
@@ -124,16 +123,7 @@ async function cargarAutores() {
             <option value="">Selecciona un autor...</option>
         `;
 
-        autores.forEach(autor => {
-            const opcion = document.createElement("option");
-
-            opcion.value = autor.id;
-
-            opcion.textContent =
-                autor.nombre ?? autor.nombre_completo ?? "Autor";
-
-            selectorAutor.appendChild(opcion);
-        });
+        autores.forEach()
 
         if (autores.length === 0) {
             selectorAutor.innerHTML = `
@@ -145,19 +135,19 @@ async function cargarAutores() {
         console.error("No se pudieron cargar los autores:", error);
 
         selectorAutor.innerHTML = `
-            <option value="">
-                No se pudieron cargar los autores
-            </option>
+            <option value="">No se pudieron cargar los autores</option>
         `;
     }
 }
-*/
 
+/*
 function cargarAutores() {
     if (!selectorAutor) return;
 
     selectorAutor.placeholder = "Escribe el nombre del autor";
 }
+*/
+
 
 
 // ======================================================
@@ -510,8 +500,8 @@ if (tablaLibros) {
             }
 
             formularioLibro.elements["titulo"].value = libro.titulo ?? "";
-            formularioLibro.elements["autor"].value =
-                libro.autor_nombre ?? libro.autor ?? "";
+            const nombreAutor = libro.autor_nombre ?? libro.autor ?? "";
+            formularioLibro.elements["autor"].value = nombreAutor;
             formularioLibro.elements["tipo_publicacion"].value =
                 libro.tipo_publicacion ?? "libro";
             formularioLibro.elements["isbn"].value = libro.isbn ?? "";
