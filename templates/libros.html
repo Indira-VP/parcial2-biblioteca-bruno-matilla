@@ -1,0 +1,455 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestión de Libros | Biblioteca Bruno Matilla Pinto</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles_libros.css' %}">
+    <script src="{% static 'js/libros.js' %}" defer></script>
+</head>
+
+<body>
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <div class="identidad">
+            <img
+                src="{% static 'img/logo-universidad.png' %}"
+                alt="Logo de la universidad"
+                class="logo-universidad"
+            >
+
+            <div class="identidad-texto">
+                <h1>Biblioteca Bruno Matilla Pinto</h1>
+                <p>CORPORACIÓN UNIVERSITARIA AUTÓNOMA DEL CAUCA</p>
+            </div>
+        </div>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+    <a href="/">Inicio</a>
+
+    <a href="{% url 'vista-autores' %}">
+        Autores
+    </a>
+
+    <a href="{% url 'vista-libros' %}" class="activo">
+        Libros
+    </a>
+
+    <a href="{% url 'vista-prestamos' %}">
+        Préstamos
+    </a>
+</nav>
+
+        <div class="usuario">
+            <span class="indicador-estado"></span>
+            <div>
+                <strong>Administrador</strong>
+                <small>Sede Principal</small>
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <!-- TÍTULO Y RESUMEN -->
+        <section class="encabezado-pagina">
+            <div class="ruta">
+                <span>⌂</span>
+                <span>Inicio</span>
+                <span>/</span>
+                <strong>Libros</strong>
+            </div>
+
+            <div class="titulo-resumen">
+                <div>
+                    <h2>Gestión de Libros</h2>
+                    <p>
+                        Gestiona el catálogo bibliográfico, inventario
+                        y disponibilidad de libros de la biblioteca.
+                    </p>
+                </div>
+
+                <div class="resumen-catalogo">
+                    <span class="icono-libro">▤</span>
+                    <div>
+                        <small>ESTADO DEL ACERVO</small>
+                        <strong id="total-ejemplares">
+                            0 ejemplares
+                        </strong>
+                        <small id="total-titulos">0 títulos</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE REGISTRO -->
+        <section class="panel formulario-panel">
+
+            <div class="panel-titulo">
+                <h3>⊕ Registrar Publicación o Ejemplar</h3>
+                <span class="etiqueta-catalogo">CATÁLOGO</span>
+            </div>
+
+            <form id="formulario-libro">
+
+                <div class="formulario-columnas">
+
+                    <!-- INFORMACIÓN BIBLIOGRÁFICA -->
+                    <fieldset class="grupo-formulario">
+                        <legend>A. Información Bibliográfica Principal</legend>
+
+                        <div class="campo">
+                            <label for="titulo">
+                                Título de la obra <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="titulo"
+                                name="titulo"
+                                placeholder="Ej. Cien años de soledad"
+                                maxlength="200"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="autor">
+                                Autor registrado <span>*</span>
+                            </label>
+                            <select id="autor" name="autor" required>
+    <option value="">Cargando autores...</option>
+</select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="tipo-publicacion">
+                                Tipo de publicación <span>*</span>
+                            </label>
+
+                            <select
+                                id="tipo-publicacion"
+                                name="tipo_publicacion"
+                                required
+                            >
+                                <option value="libro">Libro</option>
+                                <option value="tesis">Tesis</option>
+                                <option value="revista">Revista</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- CAMPOS ESPECÍFICOS -->
+                    <fieldset class="grupo-formulario">
+                        <legend>B. Campos Específicos del Tipo</legend>
+
+                        <div class="campo">
+                            <label for="isbn">ISBN</label>
+
+                            <input
+                                type="text"
+                                id="isbn"
+                                name="isbn"
+                                placeholder="978-..."
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="editorial">Editorial</label>
+
+                            <input
+                                type="text"
+                                id="editorial"
+                                name="editorial"
+                                placeholder="Ej. Sudamericana"
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="edicion">Edición</label>
+
+                            <input
+                                type="text"
+                                id="edicion"
+                                name="edicion"
+                                placeholder="Ej. 1ra edición"
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="coleccion">
+                                Volumen/Colección
+                            </label>
+
+                            <input
+                                type="text"
+                                id="coleccion"
+                                name="coleccion"
+                                placeholder="Opcional"
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="anio">
+                                Año de publicación <span>*</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="anio"
+                                name="anio_publicacion"
+                                min="1000"
+                                max="2100"
+                                placeholder="Ej. 2024"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="genero">
+                                Género / Área <span>*</span>
+                            </label>
+
+                            <select id="genero" name="genero" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="literatura">Literatura</option>
+                                <option value="computacion">Ciencias Computacionales</option>
+                                <option value="ingenieria">Ingeniería</option>
+                                <option value="historia">Historia</option>
+                                <option value="ciencias">Ciencias</option>
+                                <option value="filosofia">Filosofía</option>
+                                <option value="psicologia">Psicología</option>
+                                <option value="derecho">Derecho</option>
+                                <option value="economia">Economía</option>
+                                <option value="educacion">Educación</option>
+                                <option value="arte">Arte</option>
+                                <option value="drama">Drama</option>
+                                <option value="ficcion">Ficcion</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- INFORMACIÓN DEL EJEMPLAR -->
+                    <fieldset class="grupo-formulario">
+                        <legend>C. Información del Ejemplar Físico</legend>
+
+                        <div class="campo">
+                            <label for="codigo">
+                                Código único <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="codigo"
+                                name="codigo"
+                                placeholder="EJ-006"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="estado">Estado inicial <span>*</span></label>
+
+                            <select id="estado" name="estado" required>
+                                <option value="disponible">Disponible</option>
+                                <option value="prestado">Prestado</option>
+                                <option value="mantenimiento">
+                                    En mantenimiento
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="campo campo-completo">
+                            <label for="ubicacion">
+                                Ubicación física
+                            </label>
+
+                            <input
+                                type="text"
+                                id="ubicacion"
+                                name="ubicacion"
+                                placeholder="Ej. Estante B-12 / Nivel 3"
+                            >
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div
+                    id="mensaje-formulario"
+                    class="mensaje-formulario"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+                <div class="acciones-formulario">
+                    <button
+                        type="button"
+                        id="btn-cancelar"
+                        class="boton boton-secundario"
+                    >
+                        ✕ Cancelar
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="boton boton-claro"
+                    >
+                        Limpiar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="boton boton-principal"
+                    >
+                        ▣ Guardar registro
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- BUSCADOR Y FILTROS -->
+        <section class="panel filtros-panel">
+            <form id="formulario-busqueda">
+
+                <div class="campo-busqueda">
+                    <label class="solo-lectores" for="busqueda">
+                        Buscar libros
+                    </label>
+
+                    <input
+                        type="search"
+                        id="busqueda"
+                        placeholder="Buscar por Título, Autor, ISBN o Categoría..."
+                    >
+                </div>
+
+                <div class="campo-filtro">
+                    <label class="solo-lectores" for="filtro-tipo">
+                        Filtrar por tipo
+                    </label>
+
+                    <select id="filtro-tipo">
+                        <option value="">Todos los tipos</option>
+                        <option value="libro">Libro</option>
+                        <option value="tesis">Tesis</option>
+                        <option value="revista">Revista</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo-filtro">
+                    <label class="solo-lectores" for="filtro-estado">
+                        Filtrar por estado
+                    </label>
+
+                    <select id="filtro-estado">
+                        <option value="">Todos los estados</option>
+                        <option value="disponible">Disponible</option>
+                        <option value="prestado">Prestado</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="boton boton-principal">
+                    ⌕ Buscar
+                </button>
+
+                <button
+                    type="button"
+                    id="btn-actualizar"
+                    class="boton boton-claro"
+                >
+                    ↻ Actualizar
+                </button>
+
+            </form>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section class="panel catalogo-panel">
+
+            <div class="catalogo-titulo">
+                <h3>▤ Catálogo Bibliográfico</h3>
+                <span class="etiqueta-vista">Vista en vivo (DRF)</span>
+            </div>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CÓDIGO / ID</th>
+                            <th>TÍTULO Y DATOS BIBLIOGRÁFICOS</th>
+                            <th>AUTOR REGISTRADO</th>
+                            <th>TIPO / CATEGORÍA</th>
+                            <th>AÑO</th>
+                            <th>ESTADO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabla-libros">
+                        <tr>
+                            <td colspan="7" class="tabla-vacia">
+                                Cargando catálogo...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="paginacion">
+                <span id="contador-libros">
+                    No se han cargado libros.
+                </span>
+
+                <div class="paginacion-botones">
+                    <button
+                        type="button"
+                        id="pagina-anterior"
+                        class="boton boton-claro"
+                        disabled
+                    >
+                        ‹ Anterior
+                    </button>
+
+                    <span id="pagina-actual">1</span>
+
+                    <button
+                        type="button"
+                        id="pagina-siguiente"
+                        class="boton boton-claro"
+                        disabled
+                    >
+                        Siguiente ›
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-pagina">
+        <strong>
+            Corporación Universitaria Autónoma del Cauca
+        </strong>
+
+        <p>
+            Desarrollado por: David Caicedo, Yeferson Meneses, Indira Valencia
+        </p>
+
+        <p>
+            Asignatura: Desarrollo de Aplicaciones Web |
+            Biblioteca Bruno Matilla Pinto
+        </p>
+    </footer>
+
+</body>
+</html>
