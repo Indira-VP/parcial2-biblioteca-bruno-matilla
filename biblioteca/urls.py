@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
 from autores.views import AutorViewSet
 from prestamos.views import PrestamoViewSet
+from autores.views import vista_inicio, vista_autores
 
 router = DefaultRouter()
 
@@ -19,5 +20,6 @@ urlpatterns = [
     path('prestamos/',
         TemplateView.as_view(template_name='prestamos.html'),
         name='vista-prestamos'),
+    path('', vista_inicio, name='vista-inicio'),
 
 ]
