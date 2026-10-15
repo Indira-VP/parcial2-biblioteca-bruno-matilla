@@ -1,57 +1,180 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Autores</title>
-    <link rel="stylesheet" href="/static/css/estilos.css">
+    <title>Gestión de Autores | Biblioteca Bruno Mantilla Pinto</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles_autores.css' %}">
+    <!-- Iconos Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Gestión de Autores</h1>
 
-    <!-- Formulario POST para registrar nuevos autores -->
-    <section>
-        <h2>Registrar Nuevo Autor</h2>
-        <form id="form-autor">
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Ej: Gabriel García Márquez" required>
+    <!-- Encabezado Institucional -->
+    <header class="encabezado">
+        <div class="contenedor-encabezado">
+            <div class="marca-biblioteca">
+                <img
+                    src="{% static 'img/logo-universidad.png' %}"
+                    alt="Logo de la universidad"
+                    class="logo-universidad"
+                >
+                <div>
+                    <h1>Biblioteca Bruno Mantilla Pinto</h1>
+                    <p>Corporación Universitaria Autónoma del Cauca</p>
+                </div>
             </div>
-            <br>
-            <div>
-                <label for="nacionalidad">Nacionalidad:</label>
-                <input type="text" id="nacionalidad" placeholder="Ej: Colombiana" required>
+
+            <!-- Menú principal -->
+            <nav class="menu-principal">
+                <a href="/">Inicio</a>
+                <a href="/autores/" class="activo">Autores</a>
+                <a href="/libros/">Libros</a>
+                <a href="/prestamos/">Préstamos</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Central -->
+    <main class="container">
+        
+        <!-- Encabezado de la página -->
+        <div class="page-header">
+            <div class="breadcrumb">
+                <i class="ri-home-4-line"></i> Inicio / <strong>Autores</strong>
             </div>
-            <br>
-            <div>
-                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fecha_nacimiento">
+            <h1>Gestión de Autores</h1>
+            <p>Administra el registro biográfico, nacionalidad y producción bibliográfica de los autores en el catálogo.</p>
+        </div>
+
+        <!-- Tarjetas de Métricas -->
+        <section class="metrics-grid">
+            <div class="metric-card border-blue">
+                <div>
+                    <span class="metric-title">TOTAL AUTORES REGISTRADOS</span>
+                    <h2 id="metric-total">0</h2>
+                </div>
+                <div class="metric-icon bg-light-blue">
+                    <i class="ri-team-line"></i>
+                </div>
             </div>
-            <br>
-            <button type="submit">Guardar Autor</button>
-        </form>
-    </section>
 
-    <hr>
+            <div class="metric-card border-gold">
+                <div>
+                    <span class="metric-title">AUTORES CON OBRAS</span>
+                    <h2 id="metric-con-obras">0</h2>
+                </div>
+                <div class="metric-icon bg-light-gold">
+                    <i class="ri-book-open-line"></i>
+                </div>
+            </div>
+        </section>
 
-    <!-- Tabla GET para listar los autores existentes -->
-    <section>
-        <h2>Lista de Autores</h2>
-        <table border="1" cellpadding="8">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Nacionalidad</th>
-                    <th>Fecha de Nacimiento</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-autores">
-                <!-- Se poblará dinámicamente con JavaScript -->
-            </tbody>
-        </table>
-    </section>
+        <!-- Layout de 2 Columnas -->
+        <div class="main-layout">
 
-    <script src="/static/js/autores.js"></script>
+            <!-- Columna Izquierda: Buscador y Tabla -->
+            <section class="table-section">
+                <div class="search-bar">
+                    <div class="search-input-wrapper">
+                        <i class="ri-search-line"></i>
+                        <input type="text" id="input-buscar" placeholder="Buscar por nombre, apellido o nacionalidad...">
+                    </div>
+                    <button class="btn btn-primary" id="btn-buscar"><i class="ri-search-line"></i> Buscar</button>
+                    <button class="btn btn-secondary" id="btn-actualizar" title="Actualizar lista"><i class="ri-refresh-line"></i> Actualizar</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>APELLIDO</th>
+                                <th>NACIONALIDAD</th>
+                                <th>FECHA NAC.</th>
+                                <th>LIBROS</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-autores">
+                            <!-- Filas dinámicas desde JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <span id="info-poblacion">Mostrando 0 autores</span>
+                    <div class="pagination">
+                        <button class="btn-page" disabled>&lt; Anterior</button>
+                        <button class="btn-page active">1</button>
+                        <button class="btn-page" disabled>Siguiente &gt;</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Columna Derecha: Formulario Lateral -->
+            <aside class="form-section">
+                <div class="card-form">
+                    <div class="form-header">
+                        <i class="ri-user-add-line" id="form-icon"></i>
+                        <h3 id="form-title">Registrar Nuevo Autor</h3>
+                    </div>
+
+                    <form id="form-autor">
+                        <input type="hidden" id="autor-id">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre <span class="required">*</span></label>
+                            <input type="text" id="nombre" placeholder="Ej. Gabriel" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apellido">Apellido <span class="required">*</span></label>
+                            <input type="text" id="apellido" placeholder="Ej. García Márquez" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nacionalidad">Nacionalidad</label>
+                            <input type="text" id="nacionalidad" placeholder="Ej. Colombiana">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                            <input type="date" id="fecha_nacimiento">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="biografia">Biografía breve <small id="char-counter">0 / 300</small></label>
+                            <textarea id="biografia" maxlength="300" rows="3" placeholder="Resumen bibliográfico, áreas de investigación o distinciones académicas..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-navy btn-block" id="btn-submit">
+                                <i class="ri-save-line"></i> <span id="btn-submit-text">Guardar autor</span>
+                            </button>
+                            <button type="button" class="btn btn-light btn-block" id="btn-cancelar">
+                                <i class="ri-file-reduce-line"></i> Limpiar formulario
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Pie de Página Institucional -->
+    <footer class="pie-pagina">
+        <p>Corporación Universitaria Autónoma del Cauca</p>
+        <p>Desarrollado por: Yeferson Meneses, Indira Valencia y David Caicedo</p>
+        <p>Asignatura: Desarrollo de Aplicaciones Web | Biblioteca Bruno Mantilla Pinto</p>
+    </footer>
+
+    <!-- Lógica JavaScript -->
+    <script src="{% static 'js/autores.js' %}"></script>
 </body>
 </html>

@@ -1,0 +1,465 @@
+/* ==========================================
+   VARIABLES Y ESTILOS GENERALES
+   ========================================== */
+:root {
+    --azul-oscuro: #092b50;
+    --azul-oscuro2: #215287;
+    --azul: #174b7a;
+    --azul-claro: #edf3fc;
+    --fondo: #f5f8fd;
+    --blanco: #ffffff;
+    --texto: #26364a;
+    --text-muted: #687586;
+    --borde: #e4eaf2;
+    --blue-accent: #2563eb;
+    --blue-light: #eff6ff;
+    --danger: #ef4444;
+    --danger-light: #fef2f2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   1. ENCABEZADO INSTITUCIONAL
+   ========================================== */
+.encabezado {
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    padding: 14px 4%;
+}
+
+.contenedor-encabezado {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.marca-biblioteca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-universidad {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+}
+
+.marca-biblioteca h1 {
+    color: var(--azul-oscuro);
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+.marca-biblioteca p {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.menu-principal a {
+    color: var(--texto);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.menu-principal a:hover,
+.menu-principal a.activo {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+/* ==========================================
+   2. ESTRUCTURA Y CONTENIDO CENTRAL
+   ========================================== */
+.container {
+    max-width: 1400px;
+    margin: 1.5rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    color: var(--azul-oscuro);
+    margin-bottom: 0.25rem;
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Tarjetas de Métricas */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric-card {
+    background-color: var(--blanco);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--borde);
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 5px rgba(9, 43, 80, 0.04);
+}
+
+.metric-card.border-blue { border-left-color: var(--blue-accent); }
+.metric-card.border-gold { border-left-color: #d97706; }
+
+.metric-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.metric-card h2 {
+    font-size: 1.8rem;
+    color: var(--azul-oscuro);
+    margin-top: 0.2rem;
+}
+
+.metric-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.bg-light-blue { background-color: var(--blue-light); color: var(--blue-accent); }
+.bg-light-gold { background-color: #fef3c7; color: #d97706; }
+
+/* Disposición en 2 Columnas */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .main-layout { grid-template-columns: 1fr; }
+}
+
+/* Buscador y Contenedor de Tabla */
+.table-section {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(9, 43, 80, 0.04);
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-input-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrapper i {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-muted);
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 0.6rem 0.6rem 0.6rem 2.2rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.88rem;
+}
+
+/* Botones */
+.btn {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.2s;
+}
+
+.btn-primary { background-color: var(--azul-oscuro); color: var(--blanco); }
+.btn-secondary { background-color: var(--blue-light); color: var(--blue-accent); }
+.btn-navy { background-color: var(--azul-oscuro); color: var(--blanco); }
+.btn-light { background-color: var(--fondo); color: var(--texto); }
+.btn-block { width: 100%; justify-content: center; }
+
+/* ==========================================
+   3. ESTILOS DE LA TABLA Y ACCIONES
+   ========================================== */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+th {
+    text-align: left;
+    padding: 0.75rem 0.5rem;
+    color: var(--azul-oscuro);
+    font-weight: 700;
+    font-size: 0.75rem;
+    border-bottom: 2px solid var(--borde);
+    background-color: var(--azul-claro);
+}
+
+td {
+    padding: 0.85rem 0.5rem;
+    border-bottom: 1px solid var(--borde);
+    vertical-align: middle;
+}
+
+.id-badge {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.author-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.avatar-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--blue-light);
+    color: var(--blue-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-country {
+    background-color: #ecfdf5;
+    color: #059669;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-books {
+    background-color: var(--blue-light);
+    color: var(--blue-accent);
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Botones Editar y Eliminar */
+.actions-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.3rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.action-btn.edit {
+    color: #475569;
+}
+
+.action-btn.edit:hover {
+    color: var(--blue-accent);
+    background-color: var(--blue-light);
+}
+
+.action-btn.delete {
+    color: var(--danger);
+    background-color: var(--danger-light);
+}
+
+.action-btn.delete:hover {
+    background-color: var(--danger);
+    color: #ffffff;
+}
+
+/* Paginación */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.pagination {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.btn-page {
+    border: 1px solid var(--borde);
+    background: var(--blanco);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-page.active {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    border-color: var(--azul-oscuro);
+}
+
+/* ==========================================
+   4. FORMULARIO LATERAL
+   ========================================== */
+.card-form {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 5px rgba(9, 43, 80, 0.04);
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+.form-header h3 {
+    font-size: 1.05rem;
+    color: var(--azul-oscuro);
+}
+
+.form-group {
+    margin-bottom: 0.9rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--texto);
+}
+
+.required { color: var(--danger); }
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--blue-accent);
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* ==========================================
+   5. PIE DE PÁGINA
+   ========================================== */
+.pie-pagina {
+    background: var(--azul-oscuro2);
+    color: var(--blanco);
+    padding: 20px 4%;
+    text-align: center;
+    font-size: 12px;
+    margin-top: auto;
+}
+
+.pie-pagina p {
+    margin-bottom: 2px;
+}
