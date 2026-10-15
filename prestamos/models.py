@@ -24,6 +24,14 @@ class Prestamo(models.Model):
 
     # Este campo es opcional y puede quedar vacío.
     observaciones = models.TextField(blank=True)
+    
+    # Relaciona el préstamo con los ejemplares físicos de la biblioteca.
+    ejemplares = models.ManyToManyField(
+        "libros.Ejemplar",
+        related_name="prestamos",
+        blank=True,
+    )
+    
 
     # Así se muestra el préstamo cuando Django lo representa como texto.
     def __str__(self):
