@@ -103,13 +103,11 @@ async function consultarAPI(url) {
 // CARGAR AUTORES
 // ======================================================
 
-
 async function cargarAutores() {
     if (!selectorAutor) return;
 
-    selectorAutor.innerHTML = `
-        <option value="">Cargando autores...</option>
-    `;
+    selectorAutor.innerHTML =
+        '<option value="">Cargando autores...</option>';
 
     try {
         const datos = await consultarAPI(API_AUTORES);
@@ -119,24 +117,39 @@ async function cargarAutores() {
             ? datos
             : datos.results ?? [];
 
-        selectorAutor.innerHTML = `
-            <option value="">Selecciona un autor...</option>
-        `;
+        selectorAutor.innerHTML =
+            '<option value="">Selecciona un autor...</option>';
 
-        autores.forEach()
+        autores.forEach(autor => {
+            const opcion = document.createElement("option");
+
+            const nombreCompleto = [
+                autor.nombre,
+                autor.apellido
+            ].filter(Boolean).join(" ");
+
+            const nombre = nombreCompleto ||
+                autor.nombre_completo ||
+                autor.nombre;
+
+            if (!nombre) return;
+
+            opcion.value = nombre;
+            opcion.textContent = nombre;
+
+            selectorAutor.appendChild(opcion);
+        });
 
         if (autores.length === 0) {
-            selectorAutor.innerHTML = `
-                <option value="">No hay autores registrados</option>
-            `;
+            selectorAutor.innerHTML =
+                '<option value="">No hay autores registrados</option>';
         }
 
     } catch (error) {
         console.error("No se pudieron cargar los autores:", error);
 
-        selectorAutor.innerHTML = `
-            <option value="">No se pudieron cargar los autores</option>
-        `;
+        selectorAutor.innerHTML =
+            '<option value="">No se pudieron cargar los autores</option>';
     }
 }
 
