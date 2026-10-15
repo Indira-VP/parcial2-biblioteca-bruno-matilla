@@ -1,0 +1,595 @@
+/* Colores de la biblioteca */
+:root {
+    --azul-oscuro: #092b50;
+    --azul-oscuro2: #215287;
+    --azul: #174b7a;
+    --azul-claro: #edf3fc;
+    --fondo: #f5f8fd;
+    --blanco: #ffffff;
+    --texto: #26364a;
+    --gris: #687586;
+    --borde: #e4eaf2;
+    --verde: #16866b;
+    --rojo: #c83b3b;
+    --naranja: #a65a16;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    font-size: 14px;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+/* Encabezado */
+.encabezado {
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    padding: 14px 4%;
+}
+
+.contenedor-encabezado {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.marca-biblioteca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-universidad {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+}
+
+.marca-biblioteca h1 {
+    color: var(--azul-oscuro);
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+.marca-biblioteca p {
+    color: var(--gris);
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.menu-principal a {
+    color: var(--texto);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.menu-principal a:hover,
+.menu-principal a.activo {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+/* Contenido */
+.contenedor-principal {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 28px 3%;
+}
+
+.introduccion {
+    margin-bottom: 20px;
+}
+
+.introduccion h2 {
+    color: var(--azul-oscuro);
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.introduccion p {
+    color: var(--gris);
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* Estadísticas */
+
+/* Tarjetas de resumen: hacen que las estadísticas destaquen */
+.estadisticas,
+#estadisticas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 22px 0 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+/* Cada estadística tiene su propia tarjeta blanca */
+.tarjeta-estadistica,
+.dato-estadistica,
+#estadisticas article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    min-width: 0;
+    padding: 22px 20px;
+    background: #ffffff;
+    border: 1px solid #dfe8f3;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(9, 43, 80, 0.06);
+    border-top: 3px solid #215287;
+}
+
+/* Texto descriptivo de cada estadística */
+.titulo-estadistica,
+.tarjeta-estadistica span,
+#estadisticas h3 {
+    color: #687586;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Números más grandes y fáciles de identificar */
+.tarjeta-estadistica strong,
+.dato-estadistica strong,
+#estadisticas p {
+    color: #092b50;
+    font-size: 29px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.titulo-estadistica,
+.tarjeta-estadistica span {
+    color: var(--gris);
+    font-size: 13px;
+}
+
+.tarjeta-estadistica strong,
+.dato-estadistica strong {
+    color: var(--azul-oscuro);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#estadisticas h3 {
+    color: var(--gris);
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+}
+
+#estadisticas p {
+    color: var(--azul-oscuro);
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Listado y formulario */
+.distribucion-prestamos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.panel-listado,
+.panel-formulario {
+    min-width: 0;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 22px;
+}
+
+.encabezado-panel,
+.encabezado-formulario {
+    margin-bottom: 20px;
+}
+
+.encabezado-panel h2,
+.encabezado-formulario h2 {
+    color: var(--azul-oscuro);
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.encabezado-panel p,
+.encabezado-formulario p {
+    color: var(--gris);
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+/* Búsqueda y filtros */
+.controles-busqueda {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.campo-busqueda,
+.campo-estado {
+    min-width: 0;
+}
+
+.acciones-busqueda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.acciones-busqueda button {
+    margin: 0;
+}
+
+/* Campos del formulario */
+label {
+    display: block;
+    color: var(--texto);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 11px;
+    color: var(--texto);
+    background: var(--blanco);
+    border: 1px solid #dbe3ed;
+    border-radius: 5px;
+    margin: 0 0 14px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(23, 75, 122, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #8995a5;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 85px;
+}
+
+#buscarPrestamo {
+    max-width: 100%;
+}
+
+/* Formulario */
+#formPrestamo {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.grupo-formulario {
+    min-width: 0;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+.grupo-formulario legend {
+    padding: 0 6px;
+    color: var(--azul-oscuro);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.grupo-formulario label {
+    margin-top: 4px;
+}
+
+.grupo-formulario input,
+.grupo-formulario select,
+.grupo-formulario textarea {
+    margin-bottom: 12px;
+}
+
+.campos-dobles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.campos-dobles > div {
+    min-width: 0;
+}
+
+.ayuda-formulario,
+.nota-reglamento {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0 0 12px;
+}
+
+.nota-reglamento {
+    margin-bottom: 0;
+}
+
+.acciones-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.acciones-formulario button {
+    margin: 0;
+}
+
+#mensaje,
+#mensajeListado {
+    margin-top: 12px;
+    color: var(--texto);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* Botones */
+button {
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 600;
+    background: var(--azul-oscuro2);
+    color: var(--blanco);
+}
+
+button:hover {
+    background: var(--azul);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(23, 75, 122, 0.25);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+button[type="reset"] {
+    background: #eef2f7;
+    color: var(--texto);
+}
+
+button[type="reset"]:hover {
+    background: #dfe6ef;
+}
+
+/* Tabla de préstamos */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 12px;
+}
+
+thead {
+    background: var(--azul-claro);
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--borde);
+    overflow-wrap: anywhere;
+    vertical-align: top;
+}
+
+th {
+    color: var(--azul-oscuro);
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.estado-prestado {
+    color: var(--azul);
+    font-weight: 600;
+}
+
+.estado-devuelto {
+    color: var(--verde);
+    font-weight: 600;
+}
+
+.estado-vencido {
+    color: var(--rojo);
+    font-weight: 600;
+}
+
+/* Pie de página */
+.pie-pagina {
+    background: var(--azul-oscuro2);
+    color: var(--blanco);
+    padding: 20px 4%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.pie-pagina p {
+    margin-bottom: 0;
+}
+
+/* Pantallas medianas */
+@media (max-width: 1100px) {
+    .distribucion-prestamos {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-listado,
+    .panel-formulario {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 900px) {
+    .contenedor-encabezado {
+        flex-wrap: wrap;
+    }
+
+    .menu-principal {
+        width: 100%;
+    }
+
+    .estadisticas,
+    #estadisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tabla-contenedor table {
+        min-width: 650px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 560px) {
+    .encabezado {
+        padding: 14px 5%;
+    }
+
+    .contenedor-encabezado {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .marca-biblioteca {
+        gap: 10px;
+    }
+
+    .logo-universidad {
+        width: 52px;
+        height: 52px;
+    }
+
+    .marca-biblioteca h1 {
+        font-size: 16px;
+    }
+
+    .marca-biblioteca p {
+        font-size: 11px;
+    }
+
+    .menu-principal {
+        gap: 4px;
+    }
+
+    .menu-principal a {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .contenedor-principal {
+        padding: 20px 4%;
+    }
+
+    .introduccion h2 {
+        font-size: 22px;
+    }
+
+    .estadisticas,
+    #estadisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin: 18px 0 22px;
+    }
+
+    .tarjeta-estadistica strong,
+    .dato-estadistica strong,
+    #estadisticas p {
+        font-size: 22px;
+    }
+
+    .panel-listado,
+    .panel-formulario {
+        padding: 14px;
+    }
+
+    .encabezado-panel h2,
+    .encabezado-formulario h2 {
+        font-size: 17px;
+    }
+
+    .campos-dobles {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .grupo-formulario {
+        padding: 12px;
+    }
+
+    .acciones-busqueda,
+    .acciones-formulario {
+        width: 100%;
+    }
+
+    .acciones-busqueda button,
+    .acciones-formulario button {
+        flex: 1;
+    }
+}
