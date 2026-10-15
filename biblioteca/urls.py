@@ -16,4 +16,8 @@ urlpatterns = [
     path('autores/', 
         TemplateView.as_view(template_name='autores.html'), 
         name='vista-autores'),
+    path('prestamos/',
+        TemplateView.as_view(template_name='prestamos.html'),
+        name='vista-prestamos'),
+
 ]
