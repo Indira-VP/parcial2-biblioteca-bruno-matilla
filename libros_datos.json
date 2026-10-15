@@ -1,2 +1,1502 @@
 [
+{
+  "model": "libros.libro",
+  "pk": 1,
+  "fields": {
+    "titulo": "Cien años de soledad",
+    "autor": "Yeferson Andres Zemanate Meneses",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4642-62-0",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1982,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 2,
+  "fields": {
+    "titulo": "El amor en los tiempos del cólera",
+    "autor": "Gabriel García Márquez",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8191-99-1",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2016,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 3,
+  "fields": {
+    "titulo": "Crónica de una muerte anunciada",
+    "autor": "Isabel Allende",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5050-94-2",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2005,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 4,
+  "fields": {
+    "titulo": "La hojarasca",
+    "autor": "Mario Vargas Llosa",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6327-91-3",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1985,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 5,
+  "fields": {
+    "titulo": "El coronel no tiene quien le escriba",
+    "autor": "Jorge Luis Borges",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8007-10-4",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2023,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 6,
+  "fields": {
+    "titulo": "La casa de los espíritus",
+    "autor": "Julio Cortázar",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9762-97-5",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2006,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 7,
+  "fields": {
+    "titulo": "De amor y de sombra",
+    "autor": "Miguel de Cervantes",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8675-12-6",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2010,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 8,
+  "fields": {
+    "titulo": "Paula",
+    "autor": "Pablo Neruda",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2779-14-7",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2012,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 9,
+  "fields": {
+    "titulo": "Largo pétalo de mar",
+    "autor": "William Shakespeare",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6510-75-8",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1973,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 10,
+  "fields": {
+    "titulo": "La ciudad y los perros",
+    "autor": "Fiódor Dostoyevski",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3066-89-9",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1965,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 11,
+  "fields": {
+    "titulo": "La fiesta del chivo",
+    "autor": "Franz Kafka",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8389-91-0",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1984,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 12,
+  "fields": {
+    "titulo": "Conversación en La Catedral",
+    "autor": "Jane Austen",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3677-64-1",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1971,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 13,
+  "fields": {
+    "titulo": "Lituma en los Andes",
+    "autor": "Virginia Woolf",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2467-65-2",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2001,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 14,
+  "fields": {
+    "titulo": "Ficciones",
+    "autor": "Oscar Wilde",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5434-92-3",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1970,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 15,
+  "fields": {
+    "titulo": "El Aleph",
+    "autor": "Ernest Hemingway",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8890-57-4",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1960,
+    "genero_area": "Filosofía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 16,
+  "fields": {
+    "titulo": "El hacedor",
+    "autor": "Antoine de Saint-Exupéry",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2943-24-5",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2016,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 17,
+  "fields": {
+    "titulo": "Inquisiciones",
+    "autor": "George Orwell",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2127-94-6",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2007,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 18,
+  "fields": {
+    "titulo": "Rayuela",
+    "autor": "Haruki Murakami",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3356-55-7",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1952,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 19,
+  "fields": {
+    "titulo": "Bestiario",
+    "autor": "Stephen King",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2140-72-8",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1998,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 20,
+  "fields": {
+    "titulo": "Final del juego",
+    "autor": "Agatha Christie",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9481-29-9",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1994,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 21,
+  "fields": {
+    "titulo": "Historias de cronopios y de famas",
+    "autor": "J.K. Rowling",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9577-27-0",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1998,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 22,
+  "fields": {
+    "titulo": "Don Quijote de la Mancha",
+    "autor": "Victor Hugo",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3955-34-1",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2000,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 23,
+  "fields": {
+    "titulo": "Novelas ejemplares",
+    "autor": "León Tolstói",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9810-90-2",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1956,
+    "genero_area": "Filosofía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 24,
+  "fields": {
+    "titulo": "La Galatea",
+    "autor": "Edgar Allan Poe",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7064-94-3",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1963,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 25,
+  "fields": {
+    "titulo": "Veinte poemas de amor y una canción desesperada",
+    "autor": "Arthur Conan Doyle",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5730-45-4",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1952,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 26,
+  "fields": {
+    "titulo": "Canto general",
+    "autor": "Gabriela Mistral",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4624-98-5",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1965,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 27,
+  "fields": {
+    "titulo": "Residencia en la tierra",
+    "autor": "Mary Shelley",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3526-51-6",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2021,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 28,
+  "fields": {
+    "titulo": "Estravagario",
+    "autor": "Dante Alighieri",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1300-65-7",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1971,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 29,
+  "fields": {
+    "titulo": "Hamlet",
+    "autor": "Charles Dickens",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4284-74-8",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1965,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 30,
+  "fields": {
+    "titulo": "Romeo y Julieta",
+    "autor": "Albert Camus",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2322-62-9",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1959,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 31,
+  "fields": {
+    "titulo": "Macbeth",
+    "autor": "Hermann Hesse",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9994-52-0",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2019,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 32,
+  "fields": {
+    "titulo": "Otelos",
+    "autor": "Yeferson Andres Zemanate Meneses",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7943-53-1",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1977,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 33,
+  "fields": {
+    "titulo": "El rey Lear",
+    "autor": "Gabriel García Márquez",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6103-84-2",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1955,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 34,
+  "fields": {
+    "titulo": "Crimen y castigo",
+    "autor": "Isabel Allende",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4334-31-3",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1982,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 35,
+  "fields": {
+    "titulo": "Los hermanos Karamázov",
+    "autor": "Mario Vargas Llosa",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5050-84-4",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2020,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 36,
+  "fields": {
+    "titulo": "El idiota",
+    "autor": "Jorge Luis Borges",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3031-99-5",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2022,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 37,
+  "fields": {
+    "titulo": "Noches blancas",
+    "autor": "Julio Cortázar",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1385-46-6",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1950,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 38,
+  "fields": {
+    "titulo": "Estructuras de Datos y Algoritmos en Java",
+    "autor": "Miguel de Cervantes",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2594-32-7",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1975,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 39,
+  "fields": {
+    "titulo": "Patrones de Diseño en Software",
+    "autor": "Pablo Neruda",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7841-80-8",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1985,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 40,
+  "fields": {
+    "titulo": "Clean Code: Código Limpio",
+    "autor": "William Shakespeare",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3691-69-9",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1996,
+    "genero_area": "Filosofía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 41,
+  "fields": {
+    "titulo": "Arquitectura Limpia y Programación Modular",
+    "autor": "Fiódor Dostoyevski",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9970-14-0",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1965,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 42,
+  "fields": {
+    "titulo": "Sistemas Operativos Modernos",
+    "autor": "Franz Kafka",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7593-32-1",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2012,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 43,
+  "fields": {
+    "titulo": "Redes de Computadoras y Protocolos",
+    "autor": "Jane Austen",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9044-26-2",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1954,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 44,
+  "fields": {
+    "titulo": "Bases de Datos Relacionales y SQL Avanzado",
+    "autor": "Virginia Woolf",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1975-76-3",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2012,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 45,
+  "fields": {
+    "titulo": "Introducción a la Inteligencia Artificial",
+    "autor": "Oscar Wilde",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6451-49-4",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1983,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 46,
+  "fields": {
+    "titulo": "Aprendizaje Automático con Python",
+    "autor": "Ernest Hemingway",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5636-63-5",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1999,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 47,
+  "fields": {
+    "titulo": "Fundamentos de Ingeniería de Software",
+    "autor": "Antoine de Saint-Exupéry",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1973-12-6",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1978,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 48,
+  "fields": {
+    "titulo": "Desarrollo Web Full Stack con Django y React",
+    "autor": "George Orwell",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6777-15-7",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1992,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 49,
+  "fields": {
+    "titulo": "Compiladores: Principios y Herramientas",
+    "autor": "Haruki Murakami",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4733-37-8",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2003,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 50,
+  "fields": {
+    "titulo": "Cálculo Diferencial e Integral",
+    "autor": "Stephen King",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8591-87-9",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2002,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 51,
+  "fields": {
+    "titulo": "Álgebra Lineal y sus Aplicaciones",
+    "autor": "Agatha Christie",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8985-14-0",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2012,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 52,
+  "fields": {
+    "titulo": "Probabilidad y Estadística para Ingenieros",
+    "autor": "J.K. Rowling",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6602-55-1",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1980,
+    "genero_area": "Filosofía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 53,
+  "fields": {
+    "titulo": "Física Universitaria con Física Moderna",
+    "autor": "Victor Hugo",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7001-56-2",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1972,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 54,
+  "fields": {
+    "titulo": "Química General y Orgánica",
+    "autor": "León Tolstói",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9213-19-3",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2000,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 55,
+  "fields": {
+    "titulo": "Historia Universal Contemporánea",
+    "autor": "Edgar Allan Poe",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9125-79-4",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1966,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 56,
+  "fields": {
+    "titulo": "Breve Historia del Tiempo",
+    "autor": "Arthur Conan Doyle",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1348-62-5",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1984,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 57,
+  "fields": {
+    "titulo": "El Universo en una Cáscara de Nuez",
+    "autor": "Gabriela Mistral",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2187-75-6",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1976,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 58,
+  "fields": {
+    "titulo": "Sapiens: De animales a dioses",
+    "autor": "Mary Shelley",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2976-81-7",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1975,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 59,
+  "fields": {
+    "titulo": "Homo Deus: Breve historia del mañana",
+    "autor": "Dante Alighieri",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2645-88-8",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1969,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 60,
+  "fields": {
+    "titulo": "El Gen Egoísta",
+    "autor": "Charles Dickens",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2828-67-9",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1956,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 61,
+  "fields": {
+    "titulo": "El Origen de las Especies",
+    "autor": "Albert Camus",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7003-60-0",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2015,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 62,
+  "fields": {
+    "titulo": "La Riqueza de las Naciones",
+    "autor": "Hermann Hesse",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2207-64-1",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1968,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 63,
+  "fields": {
+    "titulo": "El Capital: Crítica de la Economía Política",
+    "autor": "Yeferson Andres Zemanate Meneses",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6350-76-2",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1962,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 64,
+  "fields": {
+    "titulo": "El Contrato Social",
+    "autor": "Gabriel García Márquez",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6717-78-3",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1994,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 65,
+  "fields": {
+    "titulo": "Leviatán",
+    "autor": "Isabel Allende",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9172-29-4",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1950,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 66,
+  "fields": {
+    "titulo": "La República",
+    "autor": "Mario Vargas Llosa",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2780-70-5",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1959,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 67,
+  "fields": {
+    "titulo": "Ética a Nicómaco",
+    "autor": "Jorge Luis Borges",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4283-70-6",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1986,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 68,
+  "fields": {
+    "titulo": "Así habló Zaratustra",
+    "autor": "Julio Cortázar",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7199-95-7",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1996,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 69,
+  "fields": {
+    "titulo": "Más allá del bien y del mal",
+    "autor": "Miguel de Cervantes",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8548-42-8",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1964,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 70,
+  "fields": {
+    "titulo": "La Divina Comedia",
+    "autor": "Pablo Neruda",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5136-56-9",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1994,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 71,
+  "fields": {
+    "titulo": "El Decamerón",
+    "autor": "William Shakespeare",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6628-87-0",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2024,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 72,
+  "fields": {
+    "titulo": "La Ilíada",
+    "autor": "Fiódor Dostoyevski",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7101-86-1",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2010,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 73,
+  "fields": {
+    "titulo": "La Odisea",
+    "autor": "Franz Kafka",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3346-73-2",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1980,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 74,
+  "fields": {
+    "titulo": "Moby Dick",
+    "autor": "Jane Austen",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8243-92-3",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2007,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 75,
+  "fields": {
+    "titulo": "Las aventuras de Huckleberry Finn",
+    "autor": "Virginia Woolf",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4643-86-4",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2023,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 76,
+  "fields": {
+    "titulo": "Orgullo y Prejuicio",
+    "autor": "Oscar Wilde",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9144-37-5",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1987,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 77,
+  "fields": {
+    "titulo": "Cumbres Borrascosas",
+    "autor": "Ernest Hemingway",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2900-98-6",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2016,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 78,
+  "fields": {
+    "titulo": "Jane Eyre",
+    "autor": "Antoine de Saint-Exupéry",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7926-40-7",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2005,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 79,
+  "fields": {
+    "titulo": "Frankenstein o el moderno Prometeo",
+    "autor": "George Orwell",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8150-61-8",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2002,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 80,
+  "fields": {
+    "titulo": "Drácula",
+    "autor": "Haruki Murakami",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5363-22-9",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2004,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 81,
+  "fields": {
+    "titulo": "El retrato de Dorian Gray",
+    "autor": "Stephen King",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4486-32-0",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1994,
+    "genero_area": "Filosofía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 82,
+  "fields": {
+    "titulo": "El principito",
+    "autor": "Agatha Christie",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3598-73-1",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2019,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 83,
+  "fields": {
+    "titulo": "1984",
+    "autor": "J.K. Rowling",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2681-14-2",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1989,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 84,
+  "fields": {
+    "titulo": "Rebelión en la granja",
+    "autor": "Victor Hugo",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-2363-89-3",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1961,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 85,
+  "fields": {
+    "titulo": "Un mundo feliz",
+    "autor": "León Tolstói",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-6366-57-4",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1957,
+    "genero_area": "Filosofía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 86,
+  "fields": {
+    "titulo": "Fahrenheit 451",
+    "autor": "Edgar Allan Poe",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1592-92-5",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1972,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 87,
+  "fields": {
+    "titulo": "El señor de los anillos: La comunidad del anillo",
+    "autor": "Arthur Conan Doyle",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7109-36-6",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1979,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 88,
+  "fields": {
+    "titulo": "El señor de los anillos: Las dos torres",
+    "autor": "Gabriela Mistral",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1473-43-7",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2017,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 89,
+  "fields": {
+    "titulo": "El señor de los anillos: El retorno del rey",
+    "autor": "Mary Shelley",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7548-77-8",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1951,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 90,
+  "fields": {
+    "titulo": "El Hobbit",
+    "autor": "Dante Alighieri",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7178-95-9",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2001,
+    "genero_area": "Ficción"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 91,
+  "fields": {
+    "titulo": "Juego de Tronos",
+    "autor": "Charles Dickens",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9094-32-0",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1951,
+    "genero_area": "Ciencia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 92,
+  "fields": {
+    "titulo": "Choque de Reyes",
+    "autor": "Albert Camus",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-7566-98-1",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1992,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 93,
+  "fields": {
+    "titulo": "Tormenta de Espadas",
+    "autor": "Hermann Hesse",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1836-28-2",
+    "editorial": "Ariel",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1989,
+    "genero_area": "Drama"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 94,
+  "fields": {
+    "titulo": "Festín de Cuervos",
+    "autor": "Yeferson Andres Zemanate Meneses",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-3594-50-3",
+    "editorial": "Alfaguara",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1967,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 95,
+  "fields": {
+    "titulo": "Danza de Dragones",
+    "autor": "Gabriel García Márquez",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-5144-77-4",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1981,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 96,
+  "fields": {
+    "titulo": "La sombra del viento",
+    "autor": "Isabel Allende",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-1903-84-5",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2000,
+    "genero_area": "Novela"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 97,
+  "fields": {
+    "titulo": "El juego del ángel",
+    "autor": "Mario Vargas Llosa",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-8968-93-6",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1967,
+    "genero_area": "Historia"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 98,
+  "fields": {
+    "titulo": "El laberinto de los espíritus",
+    "autor": "Jorge Luis Borges",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-4464-36-7",
+    "editorial": "Penguin Random House",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2019,
+    "genero_area": "Informática"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 99,
+  "fields": {
+    "titulo": "Pedro Páramo",
+    "autor": "Julio Cortázar",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-9253-72-8",
+    "editorial": "Anagrama",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 1959,
+    "genero_area": "Poesía"
+  }
+},
+{
+  "model": "libros.libro",
+  "pk": 100,
+  "fields": {
+    "titulo": "Obra Literaria e Investigación Vol. 100",
+    "autor": "Yeferson Andres Zemanate Meneses",
+    "tipo_publicacion": "libro",
+    "isbn": "978-958-88100-99-0",
+    "editorial": "Editorial Planeta",
+    "edicion": "",
+    "volumen_coleccion": "",
+    "anio_publicacion": 2024,
+    "genero_area": "Investigación"
+  }
+}
 ]
