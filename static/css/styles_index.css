@@ -37,7 +37,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Encabezado Institucional
+   Encabezado Institucional (Homologado a 1500px con Préstamos)
    -------------------------------------------------------------------------- */
 .encabezado {
     background-color: var(--blanco);
@@ -46,73 +46,75 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    padding: 14px 4%;
 }
 
 .contenedor-encabezado {
-    max-width: 1280px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 0.8rem 1.5rem;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 24px;
 }
 
 .marca-biblioteca {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 14px;
 }
 
 .logo-universidad {
-    height: 48px;
-    width: auto;
+    width: 68px;
+    height: 68px;
     object-fit: contain;
 }
 
 .marca-biblioteca h1 {
-    font-size: 1.15rem;
+    font-size: 19px;
     font-weight: 700;
     color: var(--azul-oscuro);
     line-height: 1.2;
+    margin-bottom: 4px;
 }
 
 .marca-biblioteca p {
-    font-size: 0.8rem;
+    font-size: 12px;
     color: var(--text-muted);
+    margin-bottom: 0;
 }
 
 .menu-principal {
     display: flex;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .menu-principal a {
     text-decoration: none;
     color: var(--texto);
     font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 5px;
     transition: all 0.2s ease;
 }
 
-.menu-principal a:hover {
-    background-color: var(--fondo);
-    color: var(--azul-institucional);
-}
-
+.menu-principal a:hover,
 .menu-principal a.activo {
     background-color: var(--azul-oscuro);
     color: var(--blanco);
 }
 
 /* --------------------------------------------------------------------------
-   Contenedor Principal y Header de Página
+   Contenedor Principal y Header de Página (Homologado a 1500px)
    -------------------------------------------------------------------------- */
 .container {
-    max-width: 1280px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 28px 3%;
     flex: 1;
     width: 100%;
 }
