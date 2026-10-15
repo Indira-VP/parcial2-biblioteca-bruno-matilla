@@ -134,7 +134,7 @@ async function cargarAutores() {
 
             if (!nombre) return;
 
-            opcion.value = nombre;
+            opcion.value = autor.id;
             opcion.textContent = nombre;
 
             selectorAutor.appendChild(opcion);
@@ -513,8 +513,8 @@ if (tablaLibros) {
             }
 
             formularioLibro.elements["titulo"].value = libro.titulo ?? "";
-            const nombreAutor = libro.autor_nombre ?? libro.autor ?? "";
-            formularioLibro.elements["autor"].value = nombreAutor;
+            formularioLibro.elements["autor"].value =
+                String(libro.autor_relacionado ?? "");
             formularioLibro.elements["tipo_publicacion"].value =
                 libro.tipo_publicacion ?? "libro";
             formularioLibro.elements["isbn"].value = libro.isbn ?? "";
@@ -665,27 +665,28 @@ if (formularioLibro) {
         const datosFormulario = new FormData(formularioLibro);
         const autor = datosFormulario.get("autor");
 
-        if (!autor || !autor.trim()) {
+        if (!autor || !selectorAutor.selectedOptions[0]?.value) {
             mostrarMensaje(
-                "Escribe el nombre del autor antes de guardar.",
+                "Selecciona un autor registrado antes de guardar.",
                 "error"
             );
             return;
         }
 
         const datosLibro = {
-            titulo: datosFormulario.get("titulo").trim(),
-            autor: autor.trim(),
-            tipo_publicacion: datosFormulario.get("tipo_publicacion"),
-            isbn: datosFormulario.get("isbn").trim(),
-            editorial: datosFormulario.get("editorial").trim(),
-            edicion: datosFormulario.get("edicion").trim(),
-            volumen_coleccion: datosFormulario.get("coleccion").trim(),
-            anio_publicacion: Number(
-                datosFormulario.get("anio_publicacion")
-            ),
-            genero_area: datosFormulario.get("genero")
-        };
+    titulo: datosFormulario.get("titulo").trim(),
+    autor: selectorAutor.selectedOptions[0]?.textContent.trim() ?? "",
+    autor_relacionado: Number(autor),
+    tipo_publicacion: datosFormulario.get("tipo_publicacion"),
+    isbn: datosFormulario.get("isbn").trim(),
+    editorial: datosFormulario.get("editorial").trim(),
+    edicion: datosFormulario.get("edicion").trim(),
+    volumen_coleccion: datosFormulario.get("coleccion").trim(),
+    anio_publicacion: Number(
+        datosFormulario.get("anio_publicacion")
+    ),
+    genero_area: datosFormulario.get("genero")
+};
 
         const estaEditando = libroEditandoId !== null;
 
