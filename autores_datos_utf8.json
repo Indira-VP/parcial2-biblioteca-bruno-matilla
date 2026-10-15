@@ -1,0 +1,343 @@
+[
+{
+  "model": "autores.autor",
+  "pk": 3,
+  "fields": {
+    "nombre": "Yeferson Andres",
+    "apellido": "Zemanate Meneses",
+    "nacionalidad": "Colombiana",
+    "fecha_nacimiento": "2005-12-06",
+    "biografia": "Oriundo de Bolivar Cauca"
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 4,
+  "fields": {
+    "nombre": "Gabriel",
+    "apellido": "García Márquez",
+    "nacionalidad": "Colombiana",
+    "fecha_nacimiento": "1927-03-06",
+    "biografia": "Premio Nobel de Literatura 1982, autor de Cien años de soledad."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 5,
+  "fields": {
+    "nombre": "Isabel",
+    "apellido": "Allende",
+    "nacionalidad": "Chilena",
+    "fecha_nacimiento": "1942-08-02",
+    "biografia": "Autora de La casa de los espíritus y una de las escritoras más leídas en español."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 6,
+  "fields": {
+    "nombre": "Mario",
+    "apellido": "Vargas Llosa",
+    "nacionalidad": "Peruana",
+    "fecha_nacimiento": "1936-03-28",
+    "biografia": "Premio Nobel de Literatura 2010, figura clave del boom latinoamericano."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 7,
+  "fields": {
+    "nombre": "Jorge Luis",
+    "apellido": "Borges",
+    "nacionalidad": "Argentina",
+    "fecha_nacimiento": "1899-08-24",
+    "biografia": "Maestro del relato corto, ensayo y poesía, autor de El Aleph."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 8,
+  "fields": {
+    "nombre": "Julio",
+    "apellido": "Cortázar",
+    "nacionalidad": "Argentina",
+    "fecha_nacimiento": "1914-08-26",
+    "biografia": "Innovador de la narrativa hispanoamericana, autor de Rayuela."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 9,
+  "fields": {
+    "nombre": "Miguel",
+    "apellido": "de Cervantes",
+    "nacionalidad": "Española",
+    "fecha_nacimiento": "1547-09-29",
+    "biografia": "Máxima figura de la literatura española, autor de Don Quijote de la Mancha."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 10,
+  "fields": {
+    "nombre": "Pablo",
+    "apellido": "Neruda",
+    "nacionalidad": "Chilena",
+    "fecha_nacimiento": "1904-07-12",
+    "biografia": "Premio Nobel de Literatura 1971, poeta universal."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 11,
+  "fields": {
+    "nombre": "William",
+    "apellido": "Shakespeare",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1564-04-26",
+    "biografia": "Dramaturgo y poeta inglés, autor de Hamlet y Romeo y Julieta."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 12,
+  "fields": {
+    "nombre": "Fiódor",
+    "apellido": "Dostoyevski",
+    "nacionalidad": "Rusa",
+    "fecha_nacimiento": "1821-11-11",
+    "biografia": "Explorador de la psicología humana en el contexto ruso del siglo XIX."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 13,
+  "fields": {
+    "nombre": "Franz",
+    "apellido": "Kafka",
+    "nacionalidad": "Checa",
+    "fecha_nacimiento": "1883-07-03",
+    "biografia": "Autor de La metamorfosis, figura fundamental de la literatura moderna."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 14,
+  "fields": {
+    "nombre": "Jane",
+    "apellido": "Austen",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1775-12-16",
+    "biografia": "Autora de Orgullo y prejuicio y referentes de la novela clásica inglesa."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 15,
+  "fields": {
+    "nombre": "Virginia",
+    "apellido": "Woolf",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1882-01-25",
+    "biografia": "Pionera del modernismo literario feminista, autora de Al faro."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 16,
+  "fields": {
+    "nombre": "Oscar",
+    "apellido": "Wilde",
+    "nacionalidad": "Irlandesa",
+    "fecha_nacimiento": "1854-10-16",
+    "biografia": "Dramaturgo y poeta icónico, autor de El retrato de Dorian Gray."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 17,
+  "fields": {
+    "nombre": "Ernest",
+    "apellido": "Hemingway",
+    "nacionalidad": "Estadounidense",
+    "fecha_nacimiento": "1899-07-21",
+    "biografia": "Premio Nobel de Literatura 1954, autor de El viejo y el mar."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 18,
+  "fields": {
+    "nombre": "Antoine",
+    "apellido": "de Saint-Exupéry",
+    "nacionalidad": "Francesa",
+    "fecha_nacimiento": "1900-06-29",
+    "biografia": "Aviador y escritor francés, creador del clásico El principito."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 19,
+  "fields": {
+    "nombre": "George",
+    "apellido": "Orwell",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1903-06-25",
+    "biografia": "Autor de distopías fundamentales como 1984 y Rebelión en la granja."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 20,
+  "fields": {
+    "nombre": "Haruki",
+    "apellido": "Murakami",
+    "nacionalidad": "Japonesa",
+    "fecha_nacimiento": "1949-01-12",
+    "biografia": "Escritor contemporáneo con gran reconocimiento mundial, autor de Tokio blues."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 21,
+  "fields": {
+    "nombre": "Stephen",
+    "apellido": "King",
+    "nacionalidad": "Estadounidense",
+    "fecha_nacimiento": "1947-09-21",
+    "biografia": "Maestro de la literatura de terror y suspense contemporánea."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 22,
+  "fields": {
+    "nombre": "Agatha",
+    "apellido": "Christie",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1890-09-15",
+    "biografia": "La escritora de novelas de misterio y detectives más famosa del mundo."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 23,
+  "fields": {
+    "nombre": "J.K.",
+    "apellido": "Rowling",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1965-07-31",
+    "biografia": "Creadora de la célebre saga literaria juvenil Harry Potter."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 24,
+  "fields": {
+    "nombre": "Victor",
+    "apellido": "Hugo",
+    "nacionalidad": "Francesa",
+    "fecha_nacimiento": "1802-02-26",
+    "biografia": "Máximo exponente del romanticismo francés, autor de Los miserables."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 25,
+  "fields": {
+    "nombre": "León",
+    "apellido": "Tolstói",
+    "nacionalidad": "Rusa",
+    "fecha_nacimiento": "1828-09-09",
+    "biografia": "Autor cumbre de la literatura realista, creador de Guerra y paz."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 26,
+  "fields": {
+    "nombre": "Edgar Allan",
+    "apellido": "Poe",
+    "nacionalidad": "Estadounidense",
+    "fecha_nacimiento": "1809-01-19",
+    "biografia": "Maestro del relato corto gótico y creador del relato detectivesco."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 27,
+  "fields": {
+    "nombre": "Arthur",
+    "apellido": "Conan Doyle",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1859-05-22",
+    "biografia": "Creador del legendario detective de ficción Sherlock Holmes."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 28,
+  "fields": {
+    "nombre": "Gabriela",
+    "apellido": "Mistral",
+    "nacionalidad": "Chilena",
+    "fecha_nacimiento": "1889-04-07",
+    "biografia": "Primera mujer iberoamericana en recibir el Premio Nobel de Literatura (1945)."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 29,
+  "fields": {
+    "nombre": "Mary",
+    "apellido": "Shelley",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1797-08-30",
+    "biografia": "Pionera de la ciencia ficción, autora de Frankenstein."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 30,
+  "fields": {
+    "nombre": "Dante",
+    "apellido": "Alighieri",
+    "nacionalidad": "Italiana",
+    "fecha_nacimiento": "1265-06-01",
+    "biografia": "Poeta italiano, autor de la Divina comedia."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 31,
+  "fields": {
+    "nombre": "Charles",
+    "apellido": "Dickens",
+    "nacionalidad": "Británica",
+    "fecha_nacimiento": "1812-02-07",
+    "biografia": "Gran novelista de la época victoriana, autor de Oliver Twist."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 32,
+  "fields": {
+    "nombre": "Albert",
+    "apellido": "Camus",
+    "nacionalidad": "Argelina",
+    "fecha_nacimiento": "1913-11-07",
+    "biografia": "Filósofo y escritor, Premio Nobel 1957, autor de El extranjero."
+  }
+},
+{
+  "model": "autores.autor",
+  "pk": 33,
+  "fields": {
+    "nombre": "Hermann",
+    "apellido": "Hesse",
+    "nacionalidad": "Alemana",
+    "fecha_nacimiento": "1877-07-02",
+    "biografia": "Premio Nobel de Literatura 1946, autor de Demian y Siddhartha."
+  }
+}
+]
