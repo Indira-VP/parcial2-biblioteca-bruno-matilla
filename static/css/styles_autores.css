@@ -463,3 +463,126 @@ td {
 .pie-pagina p {
     margin-bottom: 2px;
 }
+
+/* Nombre de Autor Interactiva */
+.author-name-link {
+    cursor: pointer;
+    color: var(--azul-oscuro);
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.author-name-link:hover {
+    color: var(--blue-accent);
+    text-decoration: underline;
+}
+
+/* Modal Emergente */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(9, 43, 80, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.modal-overlay.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-card {
+    background: var(--blanco);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 520px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(9, 43, 80, 0.2);
+    border: 1px solid var(--borde);
+    animation: modalSlide 0.25s ease-out;
+}
+
+@keyframes modalSlide {
+    from { transform: translateY(-15px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+.modal-author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.avatar-badge-large {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--blue-light);
+    color: var(--blue-accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-header h3 {
+    font-size: 1.15rem;
+    color: var(--azul-oscuro);
+    margin: 0;
+}
+
+.modal-header p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 2px 0 0;
+}
+
+.btn-close-modal {
+    background: transparent;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0 0.3rem;
+}
+
+.btn-close-modal:hover {
+    color: var(--danger);
+}
+
+.modal-body {
+    padding-top: 1.2rem;
+}
+
+.modal-body h4 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.modal-body p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--texto);
+}

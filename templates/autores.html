@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Autores | Biblioteca Bruno Mantilla Pinto</title>
-    <!-- Estilos CSS -->
     <link rel="stylesheet" href="{% static 'css/styles_autores.css' %}">
-    <!-- Iconos Remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
@@ -16,18 +14,13 @@
     <header class="encabezado">
         <div class="contenedor-encabezado">
             <div class="marca-biblioteca">
-                <img
-                    src="{% static 'img/logo-universidad.png' %}"
-                    alt="Logo de la universidad"
-                    class="logo-universidad"
-                >
+                <img src="{% static 'img/logo-universidad.png' %}" alt="Logo de la universidad" class="logo-universidad">
                 <div>
                     <h1>Biblioteca Bruno Mantilla Pinto</h1>
                     <p>Corporación Universitaria Autónoma del Cauca</p>
                 </div>
             </div>
 
-            <!-- Menú principal -->
             <nav class="menu-principal">
                 <a href="/">Inicio</a>
                 <a href="/autores/" class="activo">Autores</a>
@@ -40,7 +33,6 @@
     <!-- Contenido Central -->
     <main class="container">
         
-        <!-- Encabezado de la página -->
         <div class="page-header">
             <div class="breadcrumb">
                 <i class="ri-home-4-line"></i> Inicio / <strong>Autores</strong>
@@ -49,7 +41,6 @@
             <p>Administra el registro biográfico, nacionalidad y producción bibliográfica de los autores en el catálogo.</p>
         </div>
 
-        <!-- Tarjetas de Métricas -->
         <section class="metrics-grid">
             <div class="metric-card border-blue">
                 <div>
@@ -72,10 +63,8 @@
             </div>
         </section>
 
-        <!-- Layout de 2 Columnas -->
         <div class="main-layout">
 
-            <!-- Columna Izquierda: Buscador y Tabla -->
             <section class="table-section">
                 <div class="search-bar">
                     <div class="search-input-wrapper">
@@ -100,22 +89,20 @@
                             </tr>
                         </thead>
                         <tbody id="tabla-autores">
-                            <!-- Filas dinámicas desde JS -->
+                            <!-- Filas dinámicas -->
                         </tbody>
                     </table>
                 </div>
 
+                <!-- Footer de Tabla con Paginación Interactiva -->
                 <div class="table-footer">
                     <span id="info-poblacion">Mostrando 0 autores</span>
-                    <div class="pagination">
-                        <button class="btn-page" disabled>&lt; Anterior</button>
-                        <button class="btn-page active">1</button>
-                        <button class="btn-page" disabled>Siguiente &gt;</button>
+                    <div class="pagination" id="contenedor-paginacion">
+                        <!-- Botones generados dinámicamente -->
                     </div>
                 </div>
             </section>
 
-            <!-- Columna Derecha: Formulario Lateral -->
             <aside class="form-section">
                 <div class="card-form">
                     <div class="form-header">
@@ -148,7 +135,7 @@
 
                         <div class="form-group">
                             <label for="biografia">Biografía breve <small id="char-counter">0 / 300</small></label>
-                            <textarea id="biografia" maxlength="300" rows="3" placeholder="Resumen bibliográfico, áreas de investigación o distinciones académicas..."></textarea>
+                            <textarea id="biografia" maxlength="300" rows="3" placeholder="Resumen bibliográfico..."></textarea>
                         </div>
 
                         <div class="form-actions">
@@ -167,6 +154,26 @@
 
     </main>
 
+    <!-- Modal Emergente para la Biografía del Autor -->
+    <div id="modal-biografia" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-author-info">
+                    <span class="avatar-badge-large" id="modal-avatar">GA</span>
+                    <div>
+                        <h3 id="modal-nombre-autor">Nombre Autor</h3>
+                        <p id="modal-meta-autor">Nacionalidad · Fecha de nacimiento</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-close-modal" id="btn-cerrar-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>Biografía / Resumen bibliográfico:</h4>
+                <p id="modal-texto-biografia">Sin información biográfica registrada.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Pie de Página Institucional -->
     <footer class="pie-pagina">
         <p>Corporación Universitaria Autónoma del Cauca</p>
@@ -174,7 +181,6 @@
         <p>Asignatura: Desarrollo de Aplicaciones Web | Biblioteca Bruno Mantilla Pinto</p>
     </footer>
 
-    <!-- Lógica JavaScript -->
     <script src="{% static 'js/autores.js' %}"></script>
 </body>
 </html>

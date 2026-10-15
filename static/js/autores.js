@@ -1,52 +1,72 @@
 const API_URL = '/api/autores/';
 
 let autoresData = [];
+let autoresFiltrados = [];
 let editandoId = null;
+
+// Control de paginación
+let paginaActual = 1;
+const registrosPorPagina = 10;
 
 // Elementos del DOM
 const tablaBody = document.getElementById('tabla-autores');
 const metricTotal = document.getElementById('metric-total');
 const metricConObras = document.getElementById('metric-con-obras');
 const infoPoblacion = document.getElementById('info-poblacion');
+const contenedorPaginacion = document.getElementById('contenedor-paginacion');
 const inputBuscar = document.getElementById('input-buscar');
 const formAutor = document.getElementById('form-autor');
 const charCounter = document.getElementById('char-counter');
 const biografiaTextarea = document.getElementById('biografia');
 
-// 1. Obtener lista de autores desde la API (GET)
+// Elementos Modal
+const modalBiografia = document.getElementById('modal-biografia');
+const modalAvatar = document.getElementById('modal-avatar');
+const modalNombreAutor = document.getElementById('modal-nombre-autor');
+const modalMetaAutor = document.getElementById('modal-meta-autor');
+const modalTextoBiografia = document.getElementById('modal-texto-biografia');
+const btnCerrarModal = document.getElementById('btn-cerrar-modal');
+
+// 1. Obtener lista de autores (GET)
 async function obtenerAutores() {
     try {
         const res = await fetch(API_URL);
         if (!res.ok) throw new Error('Error al conectar con la API');
         autoresData = await res.json();
-        renderizarTabla(autoresData);
+        autoresFiltrados = [...autoresData];
+        paginaActual = 1;
+        renderizarTabla();
         actualizarMetricas(autoresData);
     } catch (error) {
         console.error('Error al obtener autores:', error);
     }
 }
 
-// 2. Renderizar filas respetando las 7 columnas exactas
-function renderizarTabla(lista) {
+// 2. Renderizar tabla con paginación
+function renderizarTabla() {
     if (!tablaBody) return;
     tablaBody.innerHTML = '';
 
-    if (lista.length === 0) {
+    if (autoresFiltrados.length === 0) {
         tablaBody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 2rem; color: var(--text-muted);">No se encontraron autores registrados.</td></tr>`;
         if (infoPoblacion) infoPoblacion.textContent = 'Mostrando 0 autores';
+        if (contenedorPaginacion) contenedorPaginacion.innerHTML = '';
         return;
     }
 
-    lista.forEach(autor => {
-        // Separar nombre completo en primer nombre y apellido
-        const partes = (autor.nombre || '').trim().split(' ');
-        const primerNombre = partes[0] || '';
-        const apellido = partes.slice(1).join(' ') || '-';
-        
-        // Generar iniciales para el avatar
-        const iniciales = (primerNombre.charAt(0) + (partes[1] ? partes[1].charAt(0) : '')).toUpperCase();
+    // Cálculo de subconjunto paginado (10 ítems)
+    const inicio = (paginaActual - 1) * registrosPorPagina;
+    const fin = inicio + registrosPorPagina;
+    const itemsPagina = autoresFiltrados.slice(inicio, fin);
 
-        // Cantidad de libros (simulada o leída desde backend)
+    itemsPagina.forEach(autor => {
+        const primerNombre = autor.nombre || '';
+        const apellido = autor.apellido || '-';
+        
+        const inicialNombre = primerNombre.charAt(0);
+        const inicialApellido = apellido !== '-' ? apellido.charAt(0) : '';
+        const iniciales = (inicialNombre + inicialApellido).toUpperCase();
+
         const cantidadLibros = autor.libros_count !== undefined ? autor.libros_count : 0;
 
         const tr = document.createElement('tr');
@@ -55,7 +75,7 @@ function renderizarTabla(lista) {
             <td>
                 <div class="author-cell">
                     <span class="avatar-badge">${iniciales || 'AU'}</span>
-                    <span>${primerNombre}</span>
+                    <span class="author-name-link" onclick="verBiografia(${autor.id})" title="Ver biografía">${primerNombre}</span>
                 </div>
             </td>
             <td>${apellido}</td>
@@ -74,26 +94,108 @@ function renderizarTabla(lista) {
         tablaBody.appendChild(tr);
     });
 
-    if (infoPoblacion) {
-        infoPoblacion.textContent = `Mostrando ${lista.length} de ${autoresData.length} autores`;
-    }
+    actualizarControlesPaginacion();
 }
 
-// 3. Actualizar métricas superiores
+// 3. Renderizar botones de paginación interactiva
+function actualizarControlesPaginacion() {
+    const totalRegistros = autoresFiltrados.length;
+    const totalPaginas = Math.ceil(totalRegistros / registrosPorPagina);
+
+    const inicioMostrado = (paginaActual - 1) * registrosPorPagina + 1;
+    const finMostrado = Math.min(paginaActual * registrosPorPagina, totalRegistros);
+
+    if (infoPoblacion) {
+        infoPoblacion.textContent = `Mostrando ${inicioMostrado} - ${finMostrado} de ${totalRegistros} autores`;
+    }
+
+    if (!contenedorPaginacion) return;
+    contenedorPaginacion.innerHTML = '';
+
+    // Botón Anterior
+    const btnAnt = document.createElement('button');
+    btnAnt.className = 'btn-page';
+    btnAnt.innerHTML = '&lt; Anterior';
+    btnAnt.disabled = paginaActual === 1;
+    btnAnt.onclick = () => {
+        if (paginaActual > 1) {
+            paginaActual--;
+            renderizarTabla();
+        }
+    };
+    contenedorPaginacion.appendChild(btnAnt);
+
+    // Números de Página
+    for (let i = 1; i <= totalPaginas; i++) {
+        const btnNum = document.createElement('button');
+        btnNum.className = `btn-page ${i === paginaActual ? 'active' : ''}`;
+        btnNum.textContent = i;
+        btnNum.onclick = () => {
+            paginaActual = i;
+            renderizarTabla();
+        };
+        contenedorPaginacion.appendChild(btnNum);
+    }
+
+    // Botón Siguiente
+    const btnSig = document.createElement('button');
+    btnSig.className = 'btn-page';
+    btnSig.innerHTML = 'Siguiente &gt;';
+    btnSig.disabled = paginaActual === totalPaginas || totalPaginas === 0;
+    btnSig.onclick = () => {
+        if (paginaActual < totalPaginas) {
+            paginaActual++;
+            renderizarTabla();
+        }
+    };
+    contenedorPaginacion.appendChild(btnSig);
+}
+
+// 4. Modal para ver Biografía
+function verBiografia(id) {
+    const autor = autoresData.find(a => a.id === id);
+    if (!autor) return;
+
+    const primerNombre = autor.nombre || '';
+    const apellido = autor.apellido || '';
+    const iniciales = (primerNombre.charAt(0) + (apellido ? apellido.charAt(0) : '')).toUpperCase();
+
+    if (modalAvatar) modalAvatar.textContent = iniciales || 'AU';
+    if (modalNombreAutor) modalNombreAutor.textContent = `${primerNombre} ${apellido}`.trim();
+    if (modalMetaAutor) modalMetaAutor.textContent = `${autor.nacionalidad || 'Nacionalidad N/A'} · Nacimiento: ${autor.fecha_nacimiento || 'N/A'}`;
+    if (modalTextoBiografia) modalTextoBiografia.textContent = autor.biografia || 'Este autor no cuenta con una biografía o descripción registrada en el sistema.';
+
+    if (modalBiografia) modalBiografia.classList.remove('hidden');
+}
+
+function cerrarModal() {
+    if (modalBiografia) modalBiografia.classList.add('hidden');
+}
+
+if (btnCerrarModal) btnCerrarModal.addEventListener('click', cerrarModal);
+if (modalBiografia) {
+    modalBiografia.addEventListener('click', (e) => {
+        if (e.target === modalBiografia) cerrarModal();
+    });
+}
+
+// 5. Métricas
 function actualizarMetricas(lista) {
     if (metricTotal) metricTotal.textContent = lista.length;
     if (metricConObras) metricConObras.textContent = lista.length;
 }
 
-// 4. Buscador en tiempo real
+// 6. Buscador
 if (inputBuscar) {
     inputBuscar.addEventListener('input', () => {
         const termino = inputBuscar.value.toLowerCase().trim();
-        const filtrados = autoresData.filter(a => 
+        autoresFiltrados = autoresData.filter(a => 
             (a.nombre || '').toLowerCase().includes(termino) ||
+            (a.apellido || '').toLowerCase().includes(termino) ||
             (a.nacionalidad || '').toLowerCase().includes(termino)
         );
-        renderizarTabla(filtrados);
+        paginaActual = 1;
+        renderizarTabla();
     });
 }
 
@@ -112,19 +214,17 @@ if (btnActualizar) {
     });
 }
 
-// 5. Guardar o Editar Autor (POST / PUT)
+// 7. Guardar / Editar (POST / PUT)
 if (formAutor) {
     formAutor.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const nombreVal = document.getElementById('nombre').value.trim();
-        const apellidoVal = document.getElementById('apellido').value.trim();
-        const nombreCompleto = apellidoVal ? `${nombreVal} ${apellidoVal}` : nombreVal;
-
         const payload = {
-            nombre: nombreCompleto,
+            nombre: document.getElementById('nombre').value.trim(),
+            apellido: document.getElementById('apellido').value.trim(),
             nacionalidad: document.getElementById('nacionalidad').value.trim(),
-            fecha_nacimiento: document.getElementById('fecha_nacimiento').value || null
+            fecha_nacimiento: document.getElementById('fecha_nacimiento').value || null,
+            biografia: document.getElementById('biografia').value.trim()
         };
 
         const url = editandoId ? `${API_URL}${editandoId}/` : API_URL;
@@ -149,18 +249,20 @@ if (formAutor) {
     });
 }
 
-// 6. Cargar datos en el formulario para Editar (PUT)
+// 8. Cargar Edición
 function cargarEdicion(id) {
     const autor = autoresData.find(a => a.id === id);
     if (!autor) return;
 
     editandoId = id;
-    const partes = (autor.nombre || '').trim().split(' ');
 
-    document.getElementById('nombre').value = partes[0] || '';
-    document.getElementById('apellido').value = partes.slice(1).join(' ') || '';
+    document.getElementById('nombre').value = autor.nombre || '';
+    document.getElementById('apellido').value = autor.apellido || '';
     document.getElementById('nacionalidad').value = autor.nacionalidad || '';
     document.getElementById('fecha_nacimiento').value = autor.fecha_nacimiento || '';
+    document.getElementById('biografia').value = autor.biografia || '';
+
+    if (charCounter) charCounter.textContent = `${(autor.biografia || '').length} / 300`;
 
     const formTitle = document.getElementById('form-title');
     const btnSubmitText = document.getElementById('btn-submit-text');
@@ -168,7 +270,7 @@ function cargarEdicion(id) {
     if (btnSubmitText) btnSubmitText.textContent = 'Actualizar autor';
 }
 
-// 7. Eliminar Autor (DELETE)
+// 9. Eliminar
 async function eliminarAutor(id) {
     if (!confirm('¿Estás seguro de que deseas eliminar este autor?')) return;
 
@@ -184,7 +286,7 @@ async function eliminarAutor(id) {
     }
 }
 
-// 8. Resetear formulario
+// 10. Resetear
 function resetearFormulario() {
     editandoId = null;
     if (formAutor) formAutor.reset();
@@ -197,11 +299,8 @@ function resetearFormulario() {
 }
 
 const btnCancelar = document.getElementById('btn-cancelar');
-if (btnCancelar) {
-    btnCancelar.addEventListener('click', resetearFormulario);
-}
+if (btnCancelar) btnCancelar.addEventListener('click', resetearFormulario);
 
-// Contador de caracteres
 if (biografiaTextarea && charCounter) {
     biografiaTextarea.addEventListener('input', (e) => {
         charCounter.textContent = `${e.target.value.length} / 300`;
