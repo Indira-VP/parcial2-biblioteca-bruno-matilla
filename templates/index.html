@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Biblioteca Bruno Mantilla Pinto</title>
+    <link rel="stylesheet" href="{% static 'css/styles_index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="encabezado">
+        <div class="contenedor-encabezado">
+            <div class="marca-biblioteca">
+                <img src="{% static 'img/logo-universidad.png' %}" alt="Logo Uniautónoma" class="logo-universidad">
+                <div>
+                    <h1>Biblioteca Bruno Mantilla Pinto</h1>
+                    <p>Corporación Universitaria Autónoma del Cauca</p>
+                </div>
+            </div>
+
+            <nav class="menu-principal">
+                <a href="/" class="activo">Inicio</a>
+                <a href="/autores/">Autores</a>
+                <a href="/libros/">Libros</a>
+                <a href="/prestamos/">Préstamos</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Central -->
+    <main class="container">
+        
+        <div class="page-header">
+            <div class="breadcrumb">
+                <i class="ri-home-4-line"></i> Inicio / <strong>Resumen General</strong>
+            </div>
+            <h1>Panel Principal de la Biblioteca</h1>
+            <p>Bienvenido al sistema de administración bibliográfica, registro de obras y gestión de préstamos.</p>
+        </div>
+
+        <!-- Tarjetas Métricas Principales -->
+        <section class="metrics-grid">
+            <div class="metric-card border-blue">
+                <div>
+                    <span class="metric-title">TOTAL LIBROS REGISTRADOS</span>
+                    <h2 id="metric-libros">0</h2>
+                </div>
+                <div class="metric-icon bg-light-blue">
+                    <i class="ri-book-2-line"></i>
+                </div>
+            </div>
+
+            <div class="metric-card border-gold">
+                <div>
+                    <span class="metric-title">AUTORES REGISTRADOS</span>
+                    <h2 id="metric-autores">0</h2>
+                </div>
+                <div class="metric-icon bg-light-gold">
+                    <i class="ri-team-line"></i>
+                </div>
+            </div>
+
+            <div class="metric-card border-green">
+                <div>
+                    <span class="metric-title">PRÉSTAMOS ACTIVOS</span>
+                    <h2 id="metric-prestamos">0</h2>
+                </div>
+                <div class="metric-icon bg-light-green">
+                    <i class="ri-swap-line"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabla de Últimos Registros y Movimientos del Sistema -->
+        <section class="table-section">
+            <div class="section-header">
+                <div>
+                    <h3>Últimos Registros y Movimientos</h3>
+                    <p class="subtitle">Historial reciente de nuevos autores, obras ingresadas y préstamos en circulación.</p>
+                </div>
+                <button class="btn btn-secondary" id="btn-actualizar-inicio">
+                    <i class="ri-refresh-line"></i> Actualizar
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CÓDIGO</th>
+                            <th>MÓDULO</th>
+                            <th>REGISTRO / DESCRIPCIÓN</th>
+                            <th>RESPONSABLE / SOLICITANTE</th>
+                            <th>FECHA</th>
+                            <th>ESTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-actividad">
+                        <!-- Filas cargadas dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Footer de Tabla con Paginación Interactiva -->
+            <div class="table-footer">
+                <span id="info-actividad">Mostrando 0 registros</span>
+                <div class="pagination" id="contenedor-paginacion-inicio">
+                    <!-- Botones generados dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página Institucional -->
+    <footer class="pie-pagina">
+        <p>Corporación Universitaria Autónoma del Cauca</p>
+        <p>Desarrollado por: Yeferson Meneses, Indira Valencia y David Caicedo</p>
+        <p>Asignatura: Desarrollo de Aplicaciones Web | Biblioteca Bruno Mantilla Pinto</p>
+    </footer>
+
+    <script src="{% static 'js/inicio.js' %}"></script>
+</body>
+</html>
