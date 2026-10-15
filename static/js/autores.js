@@ -181,8 +181,12 @@ if (modalBiografia) {
 
 // 5. Métricas
 function actualizarMetricas(lista) {
+    // Total de autores registrados
     if (metricTotal) metricTotal.textContent = lista.length;
-    if (metricConObras) metricConObras.textContent = lista.length;
+    
+    // Filtrar solo los autores que tengan 1 o más libros asignados
+    const conObras = lista.filter(a => (a.libros_count || 0) > 0).length;
+    if (metricConObras) metricConObras.textContent = conObras;
 }
 
 // 6. Buscador
