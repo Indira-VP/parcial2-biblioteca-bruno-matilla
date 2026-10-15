@@ -1,0 +1,1039 @@
+/* =====================================================
+   BIBLIOTECA BRUNO MATILLA PINTO
+   ESTILOS EXCLUSIVOS DE LA PÁGINA DE LIBROS
+   ===================================================== */
+
+:root {
+    --azul-oscuro: #092957;
+    --azul-principal: #123f7a;
+    --azul-claro: #eaf1ff;
+    --fondo: #f5f7fc;
+    --blanco: #ffffff;
+    --texto: #202b3c;
+    --texto-secundario: #687386;
+    --borde: #e2e8f0;
+    --amarillo: #f4ca5c;
+    --verde: #07866c;
+    --rojo: #c73e3e;
+    --radio: 9px;
+    --sombra: 0 2px 8px rgba(15, 39, 75, 0.04);
+}
+
+/* RESET */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    min-height: 76px;
+    padding: 12px 30px;
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+.identidad {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 260px;
+}
+
+.logo-universidad {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.identidad-texto h1 {
+    margin: 0;
+    color: var(--azul-oscuro);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.identidad-texto p {
+    margin: 2px 0 0;
+    color: var(--texto-secundario);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navegacion a {
+    padding: 10px 16px;
+    border-radius: 5px;
+    color: #555e6b;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navegacion a:hover {
+    background: var(--azul-claro);
+    color: var(--azul-oscuro);
+}
+
+.navegacion a.activo {
+    background: var(--azul-principal);
+    color: var(--blanco);
+    font-weight: 700;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.usuario strong,
+.usuario small {
+    display: block;
+    text-align: right;
+}
+
+.usuario strong {
+    color: var(--texto);
+    font-size: 12px;
+}
+
+.usuario small {
+    color: var(--texto-secundario);
+    font-size: 11px;
+}
+
+.indicador-estado {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #44c4a3;
+    box-shadow: 0 0 0 4px #e5f7f2;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.contenedor-principal {
+    width: min(1500px, 100%);
+    margin: 0 auto;
+    padding: 22px;
+}
+
+/* TÍTULO Y RESUMEN */
+
+.encabezado-pagina {
+    margin-bottom: 20px;
+}
+
+.ruta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.ruta strong {
+    color: var(--azul-oscuro);
+}
+
+.titulo-resumen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.titulo-resumen h2 {
+    margin: 0;
+    color: var(--azul-oscuro);
+    font-size: clamp(25px, 3vw, 32px);
+    line-height: 1.2;
+}
+
+.titulo-resumen p {
+    margin: 8px 0 0;
+    color: var(--texto-secundario);
+}
+
+.resumen-catalogo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--azul-claro);
+    border-radius: var(--radio);
+}
+
+.icono-libro {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 5px;
+    background: var(--azul-principal);
+    color: var(--blanco);
+    font-size: 23px;
+}
+
+.resumen-catalogo small,
+.resumen-catalogo strong {
+    display: block;
+}
+
+.resumen-catalogo small {
+    color: var(--texto-secundario);
+    font-size: 10px;
+}
+
+.resumen-catalogo strong {
+    color: var(--azul-oscuro);
+    font-size: 16px;
+}
+
+/* PANELES */
+
+.panel {
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: var(--blanco);
+    border: 1px solid #edf0f6;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.formulario-panel {
+    border-top: 4px solid var(--amarillo);
+}
+
+.panel-titulo,
+.catalogo-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 20px;
+}
+
+.panel-titulo {
+    border-bottom: 1px solid var(--borde);
+}
+
+.panel-titulo h3,
+.catalogo-titulo h3 {
+    margin: 0;
+    color: var(--azul-oscuro);
+    font-size: 16px;
+}
+
+.etiqueta-catalogo,
+.etiqueta-vista {
+    padding: 4px 9px;
+    border-radius: 4px;
+    background: var(--azul-claro);
+    color: var(--azul-principal);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* FORMULARIO */
+
+#formulario-libro {
+    padding: 20px;
+}
+
+.formulario-columnas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+}
+
+.grupo-formulario {
+    min-width: 0;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+}
+
+.grupo-formulario legend {
+    padding: 0 5px;
+    color: var(--azul-oscuro);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.campo:last-child {
+    margin-bottom: 0;
+}
+
+.campo label {
+    margin-bottom: 6px;
+    color: var(--texto);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.campo label span {
+    color: var(--rojo);
+}
+
+.campo input,
+.campo select,
+.campo-busqueda input,
+.campo-filtro select {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #dce3ed;
+    border-radius: 5px;
+    outline: none;
+    background: var(--blanco);
+    color: var(--texto);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input::placeholder,
+.campo-busqueda input::placeholder {
+    color: #8993a2;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo-busqueda input:focus,
+.campo-filtro select:focus {
+    border-color: var(--azul-principal);
+    box-shadow: 0 0 0 3px rgba(18, 63, 122, 0.1);
+}
+
+.acciones-formulario {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--borde);
+}
+
+/* BOTONES */
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.boton:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.boton-principal {
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+.boton-principal:hover:not(:disabled) {
+    background: var(--azul-principal);
+}
+
+.boton-claro {
+    border-color: #e0e8f5;
+    background: var(--azul-claro);
+    color: var(--azul-oscuro);
+}
+
+.boton-claro:hover:not(:disabled) {
+    background: #dce7fb;
+}
+
+.boton-secundario {
+    border-color: var(--borde);
+    background: #f7f8fa;
+    color: #6b7280;
+}
+
+.boton-secundario:hover:not(:disabled) {
+    background: #eef1f5;
+}
+
+/* MENSAJES */
+
+.mensaje-formulario {
+    margin-top: 10px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.mensaje-formulario:empty {
+    display: none;
+}
+
+.mensaje-formulario[data-tipo="error"] {
+    color: var(--rojo);
+}
+
+.mensaje-formulario[data-tipo="exito"] {
+    color: var(--verde);
+}
+
+/* BUSCADOR Y FILTROS */
+
+.filtros-panel {
+    padding: 15px;
+}
+
+#formulario-busqueda {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) 170px 170px auto auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.campo-busqueda,
+.campo-filtro {
+    min-width: 0;
+}
+
+.campo-busqueda input,
+.campo-filtro select {
+    min-height: 42px;
+}
+
+.solo-lectores {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* CATÁLOGO */
+
+.catalogo-titulo {
+    background: #edf3ff;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: #edf3ff;
+}
+
+th {
+    padding: 14px 12px;
+    color: #39465a;
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf0f5;
+    color: var(--texto);
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+td strong,
+td small {
+    display: block;
+}
+
+td strong {
+    color: #172337;
+    font-size: 13px;
+}
+
+td small {
+    margin-top: 4px;
+    color: var(--texto-secundario);
+    font-size: 10px;
+}
+
+.tabla-vacia {
+    padding: 35px 15px;
+    color: var(--texto-secundario);
+    text-align: center;
+}
+
+.etiqueta-tipo {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #e8efff;
+    color: var(--azul-oscuro);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.estado {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.estado-disponible {
+    background: #e5f7f0;
+    color: #08795f;
+}
+
+.estado-prestado {
+    background: #fff2d8;
+    color: #956017;
+}
+
+.estado-mantenimiento {
+    background: #fde9e9;
+    color: #ad3535;
+}
+
+.acciones-tabla {
+    white-space: nowrap;
+}
+
+.acciones-tabla button {
+    width: 30px;
+    height: 30px;
+    margin: 0 2px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--azul-oscuro);
+}
+
+.acciones-tabla button:hover {
+    background: var(--azul-claro);
+}
+
+/* PAGINACIÓN */
+
+.paginacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.paginacion-botones {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#pagina-actual {
+    color: var(--azul-oscuro);
+    font-weight: 700;
+}
+
+/* PIE DE PÁGINA */
+
+.pie-pagina {
+    margin-top: 20px;
+    padding: 25px 15px;
+    background: #edf2ff;
+    color: var(--texto-secundario);
+    text-align: center;
+    font-size: 12px;
+}
+
+.pie-pagina strong {
+    color: var(--azul-oscuro);
+}
+
+.pie-pagina p {
+    margin: 6px 0 0;
+}
+
+/* ADAPTACIÓN A TABLET */
+
+@media (max-width: 1100px) {
+    .encabezado {
+        flex-wrap: wrap;
+    }
+
+    .formulario-columnas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #formulario-busqueda {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .campo-busqueda {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ADAPTACIÓN A MÓVILES */
+
+@media (max-width: 650px) {
+    .encabezado {
+        padding: 15px;
+    }
+
+    .identidad {
+        min-width: 0;
+    }
+
+    .identidad-texto h1 {
+        font-size: 15px;
+    }
+
+    .identidad-texto p {
+        font-size: 9px;
+    }
+
+    .navegacion {
+        width: 100%;
+        justify-content: space-between;
+        overflow-x: auto;
+    }
+
+    .navegacion a {
+        padding: 9px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .usuario {
+        display: none;
+    }
+
+    .contenedor-principal {
+        padding: 12px;
+    }
+
+    .titulo-resumen {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .resumen-catalogo {
+        width: 100%;
+    }
+
+    .formulario-columnas {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario-libro {
+        padding: 12px;
+    }
+
+    .acciones-formulario {
+        flex-wrap: wrap;
+    }
+
+    .acciones-formulario .boton {
+        flex: 1;
+    }
+
+    #formulario-busqueda {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-busqueda {
+        grid-column: auto;
+    }
+
+    .paginacion {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .paginacion-botones {
+        flex-wrap: wrap;
+    }
+
+    .panel-titulo,
+    .catalogo-titulo {
+        padding: 13px;
+    }
+}
+
+/* =========================================
+   AJUSTES VISUALES DEL CATÁLOGO
+   ========================================= */
+
+/* Evita que el formulario se vea demasiado comprimido */
+.formulario-columnas {
+    align-items: start;
+    gap: 18px;
+}
+
+.grupo-formulario {
+    padding: 16px;
+    min-width: 0;
+}
+
+.grupo-formulario legend {
+    max-width: 100%;
+    line-height: 1.5;
+}
+
+/* Espacio entre el formulario y los botones */
+.acciones-formulario {
+    margin-top: 24px;
+}
+
+/* Buscador y filtros */
+.filtros-panel {
+    padding: 16px;
+}
+
+#formulario-busqueda {
+    gap: 12px;
+}
+
+/* Encabezado del catálogo */
+.catalogo-titulo {
+    background: #edf3ff;
+    border-bottom: 1px solid #e0e8f5;
+}
+
+/* Tabla */
+.tabla-contenedor {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    min-width: 900px;
+}
+
+th {
+    padding: 15px 12px;
+}
+
+td {
+    padding: 15px 12px;
+}
+
+/* Evita que los títulos largos deformen la tabla */
+td:nth-child(2) {
+    min-width: 230px;
+    max-width: 360px;
+}
+
+td:nth-child(2) strong {
+    overflow-wrap: anywhere;
+}
+
+/* Botones de acciones */
+.acciones-tabla button {
+    transition: background 0.2s ease;
+}
+
+.acciones-tabla button:hover {
+    background: #eaf1ff;
+}
+
+/* Mensajes de formulario */
+.mensaje-formulario {
+    padding: 0;
+}
+
+.mensaje-formulario:not(:empty) {
+    margin-top: 16px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    background: #f3f6fb;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+    .formulario-columnas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #formulario-busqueda {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .campo-busqueda {
+        grid-column: 1 / -1;
+    }
+
+    .resumen-catalogo {
+        flex-shrink: 0;
+    }
+}
+
+/* =========================================
+   MÓVIL
+   ========================================= */
+
+@media (max-width: 650px) {
+    .formulario-columnas {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+    }
+
+    .acciones-formulario .boton {
+        width: 100%;
+    }
+
+    #formulario-busqueda {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .campo-busqueda {
+        grid-column: auto;
+    }
+
+    .catalogo-titulo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .paginacion {
+        gap: 12px;
+    }
+}
+
+/* =========================================
+   AJUSTE FINAL DEL CATÁLOGO BIBLIOGRÁFICO
+   ========================================= */
+
+.catalogo-panel {
+    border-radius: 10px;
+}
+
+.catalogo-titulo {
+    min-height: 54px;
+    padding: 16px 20px;
+}
+
+.catalogo-titulo h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.etiqueta-vista {
+    font-size: 10px;
+    padding: 5px 9px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    padding: 15px 12px;
+    background: #edf3ff;
+    color: #344258;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.45px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #e8edf5;
+    font-size: 12px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+.tabla-vacia {
+    height: 80px;
+    color: #788497;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.paginacion {
+    min-height: 62px;
+    padding: 14px 16px;
+    border-top: 1px solid #edf0f6;
+}
+
+.paginacion-botones .boton {
+    min-height: 36px;
+    padding: 8px 12px;
+}
+
+/* Mejor lectura en pantallas pequeñas */
+@media (max-width: 650px) {
+    .catalogo-titulo {
+        padding: 14px;
+    }
+
+    .tabla-contenedor {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 900px;
+    }
+
+    .paginacion {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* =========================================
+   MEJORA DE LEGIBILIDAD
+   ========================================= */
+
+/* Texto general */
+body {
+    font-size: 14px;
+}
+
+/* Títulos de las secciones */
+.catalogo-titulo h3 {
+    font-size: 17px;
+}
+
+/* Encabezados de la tabla */
+thead th {
+    font-size: 11px;
+    letter-spacing: 0.4px;
+}
+
+/* Contenido de las filas */
+tbody td {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Título del libro */
+tbody td strong {
+    font-size: 14px;
+}
+
+/* Información secundaria: ISBN, editorial e identificadores */
+tbody td small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #788497;
+}
+
+/* Campos del formulario */
+input,
+select,
+textarea {
+    font-size: 14px;
+}
+
+/* Etiquetas del formulario */
+label {
+    font-size: 13px;
+}
+
+/* Botones */
+button,
+.boton {
+    font-size: 13px;
+}
+
+/* Mantener la legibilidad en pantallas pequeñas */
+@media (max-width: 650px) {
+    tbody td {
+        font-size: 13px;
+    }
+
+    tbody td strong {
+        font-size: 14px;
+    }
+}
