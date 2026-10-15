@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     
     # Mis apps
     'autores',
+    'libros',
+    'prestamos',
 ]
 
 MIDDLEWARE = [
@@ -119,8 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
-
+from pathlib import Path
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    Path(BASE_DIR) / 'static',
+]
 
 
 # Email

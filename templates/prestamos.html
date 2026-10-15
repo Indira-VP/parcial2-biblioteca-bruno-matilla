@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Préstamos | Biblioteca Bruno Mantilla Pinto</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+
+    <!-- Encabezado con el nombre de la biblioteca y los enlaces principales -->
+    <header class="encabezado">
+        <div class="contenedor-encabezado">
+
+            <div class="marca-biblioteca">
+                <img
+                    src="{% static 'img/logo-universidad.png' %}"
+                    alt="Logo de la universidad"
+                    class="logo-universidad"
+                >
+
+                <div>
+                    <h1>Biblioteca Bruno Mantilla Pinto</h1>
+                    <p>Corporación Universitaria Autónoma del Cauca</p>
+                </div>
+            </div>
+
+            <!-- Desde aquí puedo entrar a las otras secciones -->
+            <nav class="menu-principal">
+                <a href="/">Inicio</a>
+                <a href="/autores/">Autores</a>
+                <a href="/libros/">Libros</a>
+                <a href="/prestamos/" class="activo">Préstamos</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <!-- Presentación de la sección de préstamos -->
+        <section class="introduccion">
+            <h2>Gestión de Préstamos</h2>
+            <p>
+                Gestiona los préstamos, devoluciones y seguimiento de circulación
+                de libros de la biblioteca Bruno Mantilla Pinto.
+            </p>
+        </section>
+
+        <!-- Estas tarjetas muestran el resumen general de los préstamos -->
+        <section class="estadisticas" id="estadisticas">
+
+            <article class="tarjeta-estadistica">
+                <span>Total registrados</span>
+                <strong id="totalPrestamos">0</strong>
+            </article>
+
+            <article class="tarjeta-estadistica">
+                <span>Préstamos activos</span>
+                <strong id="prestamosActivos">0</strong>
+            </article>
+
+            <article class="tarjeta-estadistica">
+                <span>Próximos a vencer</span>
+                <strong id="proximosVencer">0</strong>
+            </article>
+
+            <article class="tarjeta-estadistica">
+                <span>Préstamos vencidos</span>
+                <strong id="prestamosVencidos">0</strong>
+            </article>
+
+        </section>
+
+        <!-- Aquí organizo el listado y el formulario de registro -->
+        <div class="distribucion-prestamos">
+
+            <!-- Listado general de préstamos registrados -->
+            <section class="panel-listado">
+
+                <div class="encabezado-panel">
+                    <h2>Listado general de registros</h2>
+                    <p>Consulta los préstamos registrados en la biblioteca.</p>
+                </div>
+
+                <!-- Estos controles ayudan a encontrar un préstamo rápidamente -->
+                <div class="controles-busqueda">
+
+                    <div class="campo-busqueda">
+                        <label for="buscarPrestamo">Búsqueda rápida</label>
+                        <input
+                            type="search"
+                            id="buscarPrestamo"
+                            placeholder="Buscar por solicitante o identificación..."
+                        >
+                    </div>
+
+                    <div class="campo-estado">
+                        <label for="filtroEstado">Estado</label>
+                        <select id="filtroEstado">
+                            <option value="">Todos los estados</option>
+                            <option value="prestado">Prestado</option>
+                            <option value="devuelto">Devuelto</option>
+                            <option value="vencido">Vencido</option>
+                        </select>
+                    </div>
+
+                    <div class="acciones-busqueda">
+                        <button type="button" id="btnFiltrar">Filtrar</button>
+                        <button type="button" id="btnActualizar">Limpiar / actualizar</button>
+                    </div>
+
+                </div>
+
+                <!-- Aquí JavaScript mostrará los registros que llegan desde la API -->
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID préstamo</th>
+                                <th>Libro</th>
+                                <th>Solicitante</th>
+                                <th>Fecha préstamo</th>
+                                <th>Devolución prevista</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaPrestamos">
+                            <tr>
+                                <td colspan="7" class="mensaje-vacio">
+                                    Aún no se ha generado un préstamo en la biblioteca.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Aquí aparecen mensajes relacionados con la búsqueda -->
+                <p id="mensajeListado" role="status" aria-live="polite"></p>
+
+            </section>
+
+            <!-- Formulario para registrar un préstamo nuevo -->
+            <section class="panel-formulario">
+
+                <div class="encabezado-formulario">
+                    <h2>Registrar nuevo préstamo</h2>
+                    <p>Circulación y préstamo · Máximo 2 libros.</p>
+                </div>
+
+                <form id="formPrestamo">
+
+                    <!-- Datos de la persona que solicita los libros -->
+                    <fieldset class="grupo-formulario">
+                        <legend>1. Datos del solicitante</legend>
+
+                        <label for="solicitante">Nombre completo *</label>
+                        <input
+                            type="text"
+                            id="solicitante"
+                            name="solicitante"
+                            maxlength="150"
+                            placeholder="Ej. Simon Bolivar"
+                            required
+                        >
+
+                        <label for="identificacion">Código / CC *</label>
+                        <input
+                            type="text"
+                            id="identificacion"
+                            name="identificacion"
+                            maxlength="30"
+                            placeholder="Ej. 20032022"
+                            required
+                        >
+
+                        <label for="tipoUsuario">Tipo de usuario *</label>
+                        <select id="tipoUsuario" name="tipo_usuario" required>
+                            <option value="estudiante">Estudiante</option>
+                            <option value="docente">Docente</option>
+                            <option value="administrativo">Administrativo</option>
+                        </select>
+                    </fieldset>
+
+                    <!-- Aquí selecciono el primer libro y, si hace falta, un segundo -->
+
+<!-- 2. Selección de libros que se van a prestar -->
+                    <fieldset class="grupo-formulario">
+                        <legend>2. Selección de libros (catálogo)</legend>
+
+                        <!-- Recordatorio del límite de préstamos -->
+                        <p class="nota-reglamento">
+                            Cada solicitante puede tener hasta 2 libros en préstamo simultáneamente.
+                        </p>
+
+                        <!-- Primer libro: obligatorio -->
+                        <label for="libro1">
+                            Libro o ejemplar (código o título) *
+                        </label>
+                        <input
+                            type="text"
+                            id="libro1"
+                            name="libro1"
+                            placeholder="Escriba el código o título del libro"
+                            required
+                        >
+
+                        <!-- Segundo libro: opcional -->
+                        <label for="libro2">
+                            Segundo libro (opcional)
+                        </label>
+                        <input
+                            type="text"
+                            id="libro2"
+                            name="libro2"
+                            placeholder="Escriba el código o título del segundo libro"
+                        >
+                    </fieldset>
+                    
+<!-- Fechas del préstamo: la devolución se calcula según los días elegidos -->
+<fieldset class="grupo-formulario">
+    <legend>3. Fechas del préstamo</legend>
+
+    <!-- Fecha en la que se registra el préstamo -->
+    <label for="fechaPrestamo">Fecha de préstamo *</label>
+    <input
+        type="date"
+        id="fechaPrestamo"
+        name="fecha_prestamo"
+        required
+    >
+
+    <!-- El bibliotecario elige la duración permitida -->
+    <label for="duracionPrestamo">Duración del préstamo *</label>
+    <select id="duracionPrestamo" name="duracion_prestamo" required>
+        <option value="3">3 días</option>
+        <option value="4">4 días</option>
+        <option value="5" selected>5 días</option>
+        <option value="6">6 días</option>
+        <option value="7">7 días</option>
+    </select>
+
+    <!-- Django/JavaScript mostrará aquí la fecha calculada -->
+    <label for="fechaDevolucion">Fecha de devolución (calculada) *</label>
+    <input
+        type="date"
+        id="fechaDevolucion"
+        name="fecha_devolucion_prevista"
+        required
+        readonly
+    >
+
+    <p class="ayuda-formulario">
+        Selecciona una duración de 3 a 7 días.
+        La fecha de devolución se calculará automáticamente.
+                        </p>
+                    </fieldset>
+
+                    <!-- Aquí puedo anotar detalles físicos del libro si es necesario -->
+                    <fieldset class="grupo-formulario">
+                        <legend>4. Información adicional</legend>
+
+                        <label for="observaciones">
+                            Observaciones del ejemplar (opcional)
+                        </label>
+                        <textarea
+                            id="observaciones"
+                            name="observaciones"
+                            rows="3"
+                            placeholder="Anotar detalles del estado físico del libro, sellos o anotaciones previas..."
+                        ></textarea>
+                    </fieldset>
+
+                    <!-- El estado lo controla el sistema, no se elige al registrar -->
+                    <div class="acciones-formulario">
+                        <button type="submit">Guardar préstamo</button>
+                        <button type="reset">Cancelar</button>
+                    </div>
+
+                    <!-- Aquí se muestra si el registro se guardó o si ocurrió un error -->
+                    <p id="mensaje" role="status" aria-live="polite"></p>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Pie de página de la biblioteca -->
+    <footer class="pie-pagina">
+        <p>Corporación Universitaria Autónoma del Cauca</p>
+        <p>Desarrollado por: Yeferson Meneces, Indira Valencia y David Caicedo</p>
+        <p>Asignatura: Desarrollo de Aplicaciones Web | Biblioteca Bruno Mantilla Pinto</p>
+    </footer>
+
+    <!-- Este archivo conecta el formulario y el listado con la API -->
+    <script src="{% static 'js/prestamos.js' %}" defer></script>
+
+</body>
+</html>
